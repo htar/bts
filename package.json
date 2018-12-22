@@ -1,0 +1,35 @@
+{
+  "name": "Bug Tracking System",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".prettierrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "server": "nodemon index"
+  },
+  "engines":{
+    "node":"10.8.0",
+    "npm":"6.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "nodemon": "^1.18.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htar/bts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/htar/bts/issues"
+  },
+  "homepage": "https://github.com/htar/bts#readme"
+}
