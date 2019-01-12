@@ -4,9 +4,9 @@ const router = express.Router();
 
 
 // localhost:3030/api/auth/login
-router.get('/login', controller.login);
+router.post('/login', controller.login);
 
 // localhost:3030/api/auth/register
-router.get('/register', controller.register);
+router.post('/register', controller.register);
 
 module.exports = router;
