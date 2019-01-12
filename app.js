@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
 const analyticsRouter = require('./routes/analytics');
 const authRouter = require('./routes/auth');
@@ -8,6 +9,8 @@ const issueRouter = require('./routes/issue');
 const projectRouter = require('./routes/project');
 const userRouter = require('./routes/user');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use('/api/analytics', analyticsRouter);
 app.use('/api/auth', authRouter);
