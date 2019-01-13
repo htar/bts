@@ -8,19 +8,27 @@ const projectSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    name:{
-        type:String,
+    name: {
+        type: String,
         required: true
     },
-    imgSrc:{
-        type:String,
-        default:''
+    imgSrc: {
+        type: String,
+        default: ''
     },
-    user:{
-        ref:'users',
+    list: [{
+        name: {
+            type: String,
+        },
+        quantity: {
+            type: Number,
+        }
+    }],
+    user: {
+        ref: 'users',
         type: Schema.Types.ObjectId,
     },
 
 });
 
-module.exports = mongoose.model('projects',projectSchema);
+module.exports = mongoose.model('projects', projectSchema);
