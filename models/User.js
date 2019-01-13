@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-import userStatus from '../helpers/userStatus';
-import userRoles from '../helpers/userRoles';
+const userStatus = require('../helpers/userStatus');
+const userRoles = require('../helpers/userRoles');
 
 /** User Schema */
 const userSchema = new Schema({
@@ -18,7 +18,7 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        unique:true,
+        // unique:true,
     },
     password: {
         type: String,

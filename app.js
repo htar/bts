@@ -8,7 +8,7 @@ const morgan = require('morgan');
 const routers = require('./routes/index.route');
 const config = require('./config/default');
 
-mongoose.connect(config.mongoURI)
+mongoose.connect(config.mongoURI,{ useNewUrlParser: true })
     .then(()=>console.log('MongoDB connected'))
     .catch(error=> console.log(error));
 

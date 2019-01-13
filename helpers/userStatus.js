@@ -1,1 +1,1 @@
-export default ['pending', 'confirmed', 'blocked'];
+module.exports = ['pending', 'confirmed', 'blocked'];

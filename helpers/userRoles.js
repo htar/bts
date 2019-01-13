@@ -1,1 +1,1 @@
-export default ['guest', 'tester', 'dev', 'admin'];
+module.exports = ['guest', 'tester', 'dev', 'admin'];
