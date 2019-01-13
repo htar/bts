@@ -4,12 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
-const analyticsRouter = require('./routes/analytics');
-const authRouter = require('./routes/auth');
-const caregoryRouter = require('./routes/caregory');
-const issueRouter = require('./routes/issue');
-const projectRouter = require('./routes/project');
-const userRouter = require('./routes/user');
+const routers = require('./routes/index.route');
 
 app.use(morgan('dev'));
 app.use(cors());
@@ -17,12 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/api/analytics', analyticsRouter);
-app.use('/api/auth', authRouter);
-app.use('/api/caregory', caregoryRouter);
-app.use('/api/issue', issueRouter);
-app.use('/api/project', projectRouter);
-app.use('/api/user', userRouter);
+app.use('/api', routers);
 
 
 
