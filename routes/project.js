@@ -4,9 +4,9 @@ const router = express.Router();
 
 
 router.get('/', controller.getAll);
-router.get('/:id', controller.getById);
-router.delete('/:id', controller.remove);
-router.post('/:id', controller.create);
-router.patch('/:id', controller.update);
+router.get('/:progectId', controller.getById);
+router.delete('/:progectId', controller.remove);
+router.post('/:progectId', controller.create);
+router.patch('/:progectId', controller.update);
 
 module.exports = router;
