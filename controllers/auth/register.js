@@ -1,9 +1,14 @@
+
+const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 
 module.exports = async function(req, res) {
 
     const candidate = await User.findOne({
-        email: req.body.email,
+        '$or': [
+            {email: req.body.email},
+            {username: req.body.username}
+        ]
     });
     if (candidate) {
         res.status(409).json({
@@ -11,10 +16,12 @@ module.exports = async function(req, res) {
         });
 
     } else {
+        const sald  = bcrypt.genSaltSync(10);
+        const password = req.body.password;
         const user = new User({
             email: req.body.email,
             username: req.body.username,
-            password: req.body.password,
+            password: bcrypt.hashSync(password, sald)
         });
         try {
             await user.save();
