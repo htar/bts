@@ -1,6 +1,8 @@
 
 const bcrypt = require('bcryptjs');
+
 const User = require('../../models/User');
+const utils = require('../../utils');
 
 module.exports = async function(req, res) {
 
@@ -28,9 +30,7 @@ module.exports = async function(req, res) {
             res.status(201)
                 .json(user);
         } catch (error) {
-            res.status(404).json({
-                message: 'Create User error'
-            });
+            utils.errorHandler(error);
         }
     }
 };
