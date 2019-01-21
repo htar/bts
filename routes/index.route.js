@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+// // http://localhost:3030/api/project
+
 router.use('/analytics', require('./analytics'));
 router.use('/auth', require('./auth'));
 router.use('/caregory', require('./caregory'));
