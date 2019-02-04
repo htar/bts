@@ -3,8 +3,8 @@ const controller = require('../controllers/user');
 const router = express.Router();
 
 router.get('/@me', controller.show);
-router.get('/', controller.getAll);
-router.get('/:userId', controller.getById);
-router.patch('/:userId', controller.update);
+router.get('/', controller.getAllUsers);
+router.get('/:userId', controller.getUserById);
+router.patch('/:userId', controller.updateUser);
 
 module.exports = router;

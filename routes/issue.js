@@ -3,10 +3,10 @@ const controller = require('../controllers/issue');
 const router = express.Router();
 
 
-router.get('/', controller.getAll);
-router.get('/:issueId', controller.getById);
-router.delete('/:issueId', controller.remove);
-router.post('/:issueId', controller.create);
-router.patch('/:issueId', controller.update);
+router.get('/', controller.getAllIssues);
+router.get('/:issueId', controller.getIssueById);
+router.delete('/:issueId', controller.removeIssue);
+router.post('/:issueId', controller.createIssue);
+router.patch('/:issueId', controller.updateIssue);
 
 module.exports = router;

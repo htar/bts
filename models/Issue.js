@@ -20,6 +20,10 @@ const issueSchema = new Schema({
         ref:'categories',
         type: Schema.Types.ObjectId,
     },
+    project:{
+        ref:'projects',
+        type: Schema.Types.ObjectId,
+    },
     status: {
         type: String,
         lowercase: true,
@@ -40,4 +44,4 @@ const issueSchema = new Schema({
     }],
 });
 
-module.exports = mongoose.model('users', issueSchema);
+module.exports = mongoose.model('issues', issueSchema);

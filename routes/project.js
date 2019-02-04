@@ -4,10 +4,10 @@ const router = express.Router();
 const passport = require('passport');
 
 
-router.get('/', passport.authenticate('jwt',{session:false}),controller.getAll);
-router.get('/:progectId', controller.getById);
-router.delete('/:progectId', controller.remove);
-router.post('/:progectId', controller.create);
-router.patch('/:progectId', controller.update);
+router.get('/', passport.authenticate('jwt',{session:false}),controller.getAllProjects);
+router.get('/:progectId', controller.getProjectById);
+router.delete('/:progectId', controller.removeProject);
+router.post('/:progectId', controller.createProject);
+router.patch('/:progectId', controller.updateProject);
 
 module.exports = router;
