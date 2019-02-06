@@ -10,6 +10,7 @@ const routers = require('./routes/index.route');
 const config = require('./config/default');
 const middleware = require('./middleware');
 
+mongoose.set('useCreateIndex', true);
 mongoose.connect(config.mongoURI,{ useNewUrlParser: true })
     .then(()=>console.log('MongoDB connected'))
     .catch(error=> console.log(error));

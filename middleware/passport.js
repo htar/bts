@@ -2,7 +2,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const mongoose = require('mongoose');
 
-const User = mongoose.model('users')
+const User = mongoose.model('users');
 const config = require('../config/default');
 
 const opts = {
@@ -24,7 +24,5 @@ module.exports = passport => {
             console.log(error);
             return done(error, false);
         }
-
-        // });
     }));
 }
