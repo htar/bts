@@ -13,9 +13,9 @@ async function createIssue(req, res) {
                 createdAt:now,
                 title:req.body.title,
                 description:req.body.description,
-                project:req.body.project._id,
-                user:req.body.user._id,
-    
+                project:req.body.projectId,
+                // user:req.body.user._id,
+        
             });
             await issue.save();
             res.status(201)
