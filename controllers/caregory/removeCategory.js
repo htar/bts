@@ -3,9 +3,7 @@ const {  errorHandler } = require('../../utils');
 
 async function removeCategory(req, res) {
     try {
-        await Category.remove({
-            _id: req.params.id
-        });
+        await Category.findByIdAndRemove(req.params.id);
         res.status(200).json({
             message:'Category removed'
         });

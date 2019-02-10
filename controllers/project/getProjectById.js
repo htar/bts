@@ -1,12 +1,18 @@
 const Project = require('../../models/Project');
+const Issue = require('../../models/Issue');
+const Category = require('../../models/Category');
 const {  errorHandler } = require('../../utils');
 
-function getProjectById(req, res) {
+async function getProjectById(req, res) {
     try {
-        const project = Project.find({
-            project: req.params.id
+        const project = await Project.findById(req.params.progectId);
+        const issues = await Issue.find({project:req.params.progectId});
+        const categories = await Category.find({project:req.params.progectId});
+        res.status(200).json({
+            issues,
+            categories,
+            project
         });
-        res.status(200).json(project);
     } catch (error) {
         errorHandler(res, error);
     }

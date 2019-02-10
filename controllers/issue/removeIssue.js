@@ -5,9 +5,7 @@ const {  errorHandler } = require('../../utils');
 
 async function removeIssue(req, res) {
     try {
-        await Issue.remove({
-            _id: req.params.id
-        });
+        await Issue.findByIdAndRemove(req.params.id);
         res.status(200).json({
             message:'Issue  removed'
         });

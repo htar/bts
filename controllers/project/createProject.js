@@ -4,7 +4,7 @@ const User = require('../../models/User');
 const {  errorHandler } = require('../../utils');
 
 async function createProject(req, res) {
-    const user = await User.findById(req.body.userId);
+    const user = await User.findById(req.user.id);
     if (user){
         try {
             const project = await new Project({

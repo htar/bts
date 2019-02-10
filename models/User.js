@@ -9,7 +9,7 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique:true,
+        unique: true,
         index: {
             unique: true
         },
@@ -31,18 +31,30 @@ const userSchema = new Schema({
         type: String,
         lowercase: true,
         enum: userStatus,
-        default:'pending'
+        default: 'pending'
     },
     role: {
         type: String,
         lowercase: true,
         enum: userRoles,
-        default:'guest'
+        default: 'guest'
     },
     createdAt: {
         type: Date,
         default: Date.now,
     },
 });
+
+
+/**
+ * Methods
+ */
+userSchema.method({});
+
+/**
+ * Statics
+ */
+userSchema.statics = {};
+
 
 module.exports = mongoose.model('users', userSchema);
