@@ -1,9 +1,14 @@
 const Category = require('../../models/Category');
 const {  errorHandler } = require('../../utils');
 
-function removeCategory(req, res) {
+async function removeCategory(req, res) {
     try {
-
+        await Category.remove({
+            _id: req.params.id
+        });
+        res.status(200).json({
+            message:'Category removed'
+        });
     } catch (error) {
         errorHandler(res, error);
     }

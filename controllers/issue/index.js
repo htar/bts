@@ -1,5 +1,5 @@
 module.exports = {
-    getAllIssues: require('./getAllIssues'),
+    getIssueList: require('./getIssueList'),
     getIssueById: require('./getIssueById'),
     removeIssue: require('./removeIssue'),
     createIssue: require('./createIssue'),

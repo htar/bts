@@ -8,19 +8,18 @@ const categorySchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    name:{
-        type:String,
+    name: {
+        type: String,
         required: true
     },
-    imgSrc:{
-        type:String,
-        default:''
-    },
-    user:{
-        ref:'users',
+    project: {
+        ref: 'projects',
         type: Schema.Types.ObjectId,
     },
-
+    user: {
+        ref: 'users',
+        type: Schema.Types.ObjectId,
+    },
 });
 
-module.exports = mongoose.model('categories',categorySchema);
+module.exports = mongoose.model('categories', categorySchema);

@@ -1,13 +1,11 @@
 const Issue = require('../../models/Issue');
-const {  errorHandler } = require('../../utils');
+const { errorHandler } = require('../../utils');
 
 
 async function getIssueById(req, res) {
     try {
         const issue = Issue.find({
-            issue: req.params.issueId,
-            user:req.user.id
-
+            issue: req.params.id
         });
         res.status(200).json(issue);
     } catch (error) {

@@ -1,9 +1,14 @@
 const Project = require('../../models/Project');
 const {  errorHandler } = require('../../utils');
 
-function removeProject(req, res) {
+async function removeProject(req, res) {
     try {
-
+        await Project.remove({
+            _id: req.params.id
+        });
+        res.status(200).json({
+            message:'Project  removed'
+        });
     } catch (error) {
         errorHandler(res, error);
     }

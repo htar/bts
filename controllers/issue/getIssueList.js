@@ -1,5 +1,5 @@
 const Issue = require('../../models/Issue');
-const Pipeline = require('../../models/Pipeline');
+const Category = require('../../models/Category');
 const { errorHandler }  = require('../../utils');
 
 async function getAllIssues (req, res) {
@@ -8,13 +8,13 @@ async function getAllIssues (req, res) {
             project: req.params.projectId,
 
         });
-        const pipelines = await Pipeline.find({
+        const categories = await Category.find({
             project: req.params.projectId,
 
         });
         res.status(200).json({
             issues,
-            pipelines
+            categories
         });
 
     } catch (error) {

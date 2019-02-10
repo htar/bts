@@ -7,18 +7,18 @@ async function createProject(req, res) {
     const user = await User.findById(req.body.userId);
     if (user){
         try {
-            const project = new Project({
+            const project = await new Project({
                 name:req.body.name,
+                user: user.id
     
-            });
-            await project.save();
+            }).save();
             res.status(201)
                 .json(project);
         } catch (error) {
             errorHandler(res, error);
         }
     } else {
-        errorHandler({ message:'Email or User name not correct.'});
+        errorHandler({ message:'Cant create Project.'});
     }
 }
 

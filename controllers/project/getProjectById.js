@@ -3,7 +3,10 @@ const {  errorHandler } = require('../../utils');
 
 function getProjectById(req, res) {
     try {
-
+        const project = Project.find({
+            project: req.params.id
+        });
+        res.status(200).json(project);
     } catch (error) {
         errorHandler(res, error);
     }
