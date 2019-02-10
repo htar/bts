@@ -5,9 +5,9 @@ const passport = require('passport');
 
 
 router.get('/', passport.authenticate('jwt',{session:false}),controller.getAllProjects);
-router.get('/:progectId', controller.getProjectById);
-router.delete('/:progectId', controller.removeProject);
-router.post('/', controller.createProject);
-router.patch('/:progectId', controller.updateProject);
+router.get('/:progectId',passport.authenticate('jwt',{session:false}), controller.getProjectById);
+router.delete('/:progectId',passport.authenticate('jwt',{session:false}), controller.removeProject);
+router.post('/',passport.authenticate('jwt',{session:false}), controller.createProject);
+router.patch('/:progectId',passport.authenticate('jwt',{session:false}), controller.updateProject);
 
 module.exports = router;
