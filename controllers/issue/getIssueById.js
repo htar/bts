@@ -4,7 +4,7 @@ const { errorHandler } = require('../../utils');
 
 async function getIssueById(req, res) {
     try {
-        const issue = Issue.findById(req.params.id);
+        const issue = await Issue.findById(req.params.id);
         res.status(200).json(issue);
     } catch (error) {
         errorHandler(res, error);

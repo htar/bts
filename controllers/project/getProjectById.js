@@ -4,10 +4,11 @@ const Category = require('../../models/Category');
 const {  errorHandler } = require('../../utils');
 
 async function getProjectById(req, res) {
+    const projectId = req.params.progectId;
     try {
-        const project = await Project.findById(req.params.progectId);
-        const issues = await Issue.find({project:req.params.progectId});
-        const categories = await Category.find({project:req.params.progectId});
+        const project = await Project.findById(projectId);
+        const issues = await Issue.find({project:projectId});
+        const categories = await Category.find({project:projectId});
         res.status(200).json({
             issues,
             categories,
