@@ -18,6 +18,8 @@ mongoose.connect(config.mongoURI,{ useNewUrlParser: true })
 app.use(passport.initialize());
 middleware.passport(passport);
 
+app.use('/public',express.static('public'));
+
 app.use(morgan('dev'));
 app.use(cors());
 

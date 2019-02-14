@@ -9,7 +9,8 @@ async function createProject(req, res) {
         try {
             const project = await new Project({
                 name:req.body.name,
-                user: user.id
+                user: req.user.id,
+                imageSrc: req.file ? req.file.path : ''
     
             }).save();
             res.status(201)

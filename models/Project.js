@@ -12,7 +12,7 @@ const projectSchema = new Schema({
         type: String,
         required: true
     },
-    imgSrc: {
+    imageSrc: {
         type: String,
         default: ''
     },
