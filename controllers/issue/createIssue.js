@@ -15,6 +15,7 @@ async function createIssue(req, res) {
                 description:req.body.description,
                 project:req.body.projectId,
                 user:user.id,
+                subscribeUser:[user.id],
         
             }).save();
             res.status(201)

@@ -16,10 +16,6 @@ const categorySchema = new Schema({
         ref: 'projects',
         type: Schema.Types.ObjectId,
     },
-    user: {
-        ref: 'users',
-        type: Schema.Types.ObjectId,
-    },
 });
 
 module.exports = mongoose.model('categories', categorySchema);
