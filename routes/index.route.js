@@ -7,6 +7,7 @@ const router = express.Router();
 router.use('/analytics', require('./analytics'));
 router.use('/auth', require('./auth'));
 router.use('/caregory', require('./caregory'));
+router.use('/comment', require('./comment'));
 router.use('/issue', require('./issue'));
 router.use('/project', require('./project'));
 router.use('/user', require('./user'));

@@ -8,8 +8,8 @@ const Schema = mongoose.Schema;
 var commentSchema = new Schema({
     title: String,
     commentedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'users',
+        type: mongoose.Schema.Types.ObjectId
     },
     comments: [{
         text: String,
@@ -17,7 +17,11 @@ var commentSchema = new Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'users'
         }
-    }]
+    }],
+    issue:{
+        ref:'issues',
+        type: Schema.Types.ObjectId,
+    },
 });
 
 module.exports = mongoose.model('comments', commentSchema);
