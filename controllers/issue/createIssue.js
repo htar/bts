@@ -7,16 +7,16 @@ const {  errorHandler } = require('../../utils');
 async function createIssue(req, res) {
     var now = Date.now();
     const user = await User.findById(req.user.id);
-    if (user){
+    if (user) {
         try {
             const issue = await new Issue({
-                createdAt:now,
-                title:req.body.title,
-                description:req.body.description,
-                project:req.body.projectId,
-                user:user.id,
-                subscribeUser:[user.id],
-        
+                createdAt: now,
+                title: req.body.title,
+                description: req.body.description,
+                project: req.body.projectId,
+                user: user.id,
+                subscribeUser: [user.id],
+
             }).save();
             res.status(201)
                 .json(issue);
@@ -24,7 +24,9 @@ async function createIssue(req, res) {
             errorHandler(res, error);
         }
     } else {
-        errorHandler({ message:'Cant create Issue please authorize'});
+        errorHandler({
+            message: 'Cant create Issue please authorize'
+        });
     }
 
 }

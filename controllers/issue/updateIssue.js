@@ -7,7 +7,7 @@ const {
 async function updateIssue(req, res) {
     try {
         const issue = await Issue.findOneAndUpdate({
-            _id: req.params.id
+            _id: req.params.issueId
         }, {
             $set: req.body
         }, {

@@ -1,22 +1,25 @@
 const Project = require('../../models/Project');
-const {  errorHandler } = require('../../utils');
+const Issue = require('../../models/Issue');
+const { errorHandler } = require('../../utils');
 
 async function removeProject(req, res) {
+    const projectId = req.params.progectId;
 
-    const project = await Project.findById(req.params.projectId);
+    const project = await Project.findById(projectId);
     if (project) {
         try {
-            project.remove().then(()=>{
+            await Issue.deleteMany({ project: projectId });
+            project.remove().then(() => {
                 res.status(200).json({
-                    message:'Project removed'
+                    message: 'Project removed'
                 });
             });
         } catch (error) {
             errorHandler(res, error);
         }
-    }else{
+    } else {
         res.status(404).json({
-            message:'Project dont found'
+            message: 'Project dont found'
         });
     }
 

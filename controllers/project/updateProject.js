@@ -3,11 +3,11 @@ const {  errorHandler } = require('../../utils');
 
 async function updateProject(req, res) {
     const updated = { name: req.body.name };
-    if(req.file) updated.imageSrc = req.file.path;
+    if (req.file) updated.imageSrc = req.file.path;
 
     try {
         const project = await Project.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.projectId },
             { $set: updated },
             { new: true }
         );
