@@ -4,13 +4,22 @@ const {  errorHandler } = require('../../utils');
 
 
 async function removeIssue(req, res) {
-    try {
-        await Issue.findByIdAndRemove(req.params.id);
-        res.status(200).json({
-            message:'Issue  removed'
+
+    const issue = await Issue.findById(req.params.issueId);
+    if (issue) {
+        try {
+            issue.remove().then(()=>{
+                res.status(200).json({
+                    message:'Issue removed'
+                });
+            });
+        } catch (error) {
+            errorHandler(res, error);
+        }
+    }else{
+        res.status(404).json({
+            message:'Issue dont found'
         });
-    } catch (error) {
-        errorHandler(res, error);
     }
 }
 

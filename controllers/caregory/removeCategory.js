@@ -2,14 +2,24 @@ const Category = require('../../models/Category');
 const {  errorHandler } = require('../../utils');
 
 async function removeCategory(req, res) {
-    try {
-        await Category.findByIdAndRemove(req.params.id);
-        res.status(200).json({
-            message:'Category removed'
+
+    const category = await Category.findById(req.params.categoryId);
+    if (category) {
+        try {
+            category.remove().then(()=>{
+                res.status(200).json({
+                    message:'Category removed'
+                });
+            });
+        } catch (error) {
+            errorHandler(res, error);
+        }
+    }else{
+        res.status(404).json({
+            message:'Category dont found'
         });
-    } catch (error) {
-        errorHandler(res, error);
     }
+
 }
 module.exports = function (req, res) {
     removeCategory(req, res);
