@@ -1,22 +1,28 @@
 {
-  "name": "Bug Tracking System",
+  "name": "BTS",
   "version": "1.0.0",
   "description": "",
-  "main": ".prettierrc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "server": "nodemon index"
   },
-  "engines":{
-    "node":"10.8.0",
-    "npm":"6.2.0"
+  "engines": {
+    "node": "10.8.0",
+    "npm": "6.2.0"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "moment": "^2.22.2",
-    "mongoose": "^5.3.2"
+    "jsonwebtoken": "^8.4.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.3",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
