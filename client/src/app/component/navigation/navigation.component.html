@@ -8,13 +8,9 @@
 	<mat-toolbar-row>
 		<nav>
 			<ul>
-				<li routerLinkActive="active" routerLink="/app/login">
-					<mat-icon class="icon">fingerprint</mat-icon>
-					Log in
-				</li>
-				<li routerLinkActive="active" routerLink="/app/register">
-					<mat-icon class="icon">input</mat-icon>
-					Sign Up
+				<li *ngFor="let rout of routs" routerLinkActive="active" routerLink="/app/{{rout.link}}">
+					<mat-icon class="icon">{{rout.icon}}</mat-icon>
+					{{rout.name}}
 				</li>
 			</ul>
 		</nav>
