@@ -2,10 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-	MatToolbarModule,
+	MatNativeDateModule,
+	MatDatepickerModule,
 	MatIconModule,
-
+	MatButtonModule,
+	MatCheckboxModule,
+	MatToolbarModule,
+	MatCardModule,
+	MatFormFieldModule,
+	MatInputModule,
+	MatListModule,
+	MatRadioModule,
 } from '@angular/material';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,10 +34,21 @@ import { NavigationComponent } from './component/navigation/navigation.component
 	],
 	imports: [
 		BrowserModule,
+		FormsModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
+		ReactiveFormsModule,
 		MatToolbarModule,
-		MatIconModule
+		MatIconModule,
+		MatNativeDateModule,
+		MatDatepickerModule,
+		MatButtonModule,
+		MatCheckboxModule,
+		MatCardModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatListModule,
+		MatRadioModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
