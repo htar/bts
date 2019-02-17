@@ -1,18 +1,22 @@
 <mat-toolbar class="navigation" color="primary">
-	<span routerLink="/" class="logo">
-		<mat-icon class="icon">home</mat-icon>
-		Home Page
-	</span>
-	<nav>
-		<ul>
-			<li routerLinkActive="active" routerLink="/login">
-				<mat-icon class="icon">fingerprint</mat-icon>
-				Log in
-			</li>
-			<li routerLinkActive="active" routerLink="/register">
-				<mat-icon class="icon">input</mat-icon>
-				Sign Up
-			</li>
-		</ul>
-	</nav>
+	<mat-toolbar-row>
+		<span routerLink="/" class="logo">
+			<mat-icon class="icon">home</mat-icon>
+			Home Page
+		</span>
+	</mat-toolbar-row>
+	<mat-toolbar-row>
+		<nav>
+			<ul>
+				<li routerLinkActive="active" routerLink="/app/login">
+					<mat-icon class="icon">fingerprint</mat-icon>
+					Log in
+				</li>
+				<li routerLinkActive="active" routerLink="/app/register">
+					<mat-icon class="icon">input</mat-icon>
+					Sign Up
+				</li>
+			</ul>
+		</nav>
+	</mat-toolbar-row>
 </mat-toolbar>
