@@ -2,6 +2,7 @@ node_modules/*
 .vscode/*
 .history/*
 npm-debug.log
+.angulardoc.json
 
 public/*
 !public/.gitkeep

@@ -5,7 +5,8 @@
   ],
   "rules": {
     "array-type": false,
-    "arrow-parens": false,
+		"arrow-parens": false,
+		"indent": [true, "tabs"],
     "deprecation": {
       "severity": "warn"
     },
