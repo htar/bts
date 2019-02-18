@@ -9,12 +9,13 @@ nav
 	width 100%
 
 li
-	padding: 0
 	padding 0 var(--padding)
 	cursor: pointer
 	display flex
 	align-items center
 	transition: all .3s ease
+	&.active
+		opacity .6
 	&:last-child
 		padding-right 0
 	&:hover

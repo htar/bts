@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./navigation.component.styl'],
 })
 export class NavigationComponent implements OnInit {
-	routs: [] = [
+	routs: any = [
 		{link: 'login',
-		icon: 'fingerprint',
+		icon: 'input',
 		name: 'Log in' },
 		{link: 'register',
-		icon: 'input',
+		icon: 'fingerprint',
 		name: 'Sign Up' },
 	];
 	constructor() {}

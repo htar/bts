@@ -7,7 +7,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/app', pathMatch: 'full' },
+	{ path: '', redirectTo: '/app/login', pathMatch: 'full' },
 	{ path: 'app', component: SiteLayoutComponent, children: [
 			{ path: 'login', component: LoginPageComponent },
 			{ path: 'register', component: RegisterPageComponent }
