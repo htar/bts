@@ -20,6 +20,18 @@ const userSchema = new Schema({
         required: true,
         // unique:true,
     },
+    firstName: {
+        type: String,
+    },
+    lastName: {
+        type: String,
+    },
+    address: {
+        type: String,
+    },
+    gender: {
+        type: String,
+    },
     password: {
         type: String,
         required: true,
@@ -42,6 +54,9 @@ const userSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
+    },
+    date: {
+        type: Date
     },
 });
 
