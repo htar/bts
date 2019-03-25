@@ -1,5 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { AuthService } from './../../services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-login-page',
@@ -7,13 +9,38 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 	styleUrls: ['./login-page.component.styl'],
 })
 export class LoginPageComponent implements OnInit {
-	constructor() {}
-	email = new FormControl('', [Validators.required, Validators.email]);
+	form: FormGroup;
 
-	getErrorMessage() {
-		return this.email.hasError('required') ? 'You must enter a value' :
-			this.email.hasError('email') ? 'Not a valid email' :
-				'';
+	constructor(private auth: AuthService) {}
+
+	ngOnInit() {
+		this.form = new FormGroup({
+			email: new FormControl(null, [
+				Validators.required,
+				Validators.minLength(4),
+			]),
+			password: new FormControl(null, [
+				Validators.required,
+				Validators.minLength(6),
+			]),
+		});
 	}
-	ngOnInit() {}
+	onSubmit() {
+		// const user = {
+		// 	email: this.form.value.email,
+		// 	password: this.form.value.password,
+		// };
+		this.form.disable()
+		this.auth
+		.login(this.form.value)
+		.subscribe(
+			() => {
+				console.info('Login success')
+			},
+			errors => {
+				console.warn('Login error')
+				this.form.enable()
+			}
+			);
+	}
 }

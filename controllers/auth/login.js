@@ -9,7 +9,7 @@ async function login (req, res) {
     const user = await User.findOne({
         '$or': [
             {email: req.body.email},
-            {username: req.body.username}
+            {username: req.body.email}
         ]
     });
     if (user){

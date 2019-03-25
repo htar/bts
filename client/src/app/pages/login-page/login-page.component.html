@@ -3,19 +3,43 @@
 		<span>LOGIN</span>
 	</mat-toolbar>
 	<mat-card-content>
-		<form class="my-form">
+		<form class="my-form"
+		[formGroup]="form"
+		(ngSubmit)="onSubmit()"
+		>
 			<mat-form-field class="full-width">
-				<mat-label>Email</mat-label>
-				<input matInput placeholder="Enter your email" [formControl]="email" required>
-				<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+				<mat-label>Username or Email</mat-label>
+				<input matInput placeholder="Enter your UserName or email" formControlName="email" required>
+				<mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
+					<span *ngIf="form.get('email').hasError('required')">
+						Please write UserName or Email
+					</span>
+					<span *ngIf="form.get('email').hasError('minlength')">
+						Min length 4 letters
+					</span>
+				</mat-error>
 			</mat-form-field>
 			<mat-form-field class="full-width">
 				<mat-label>Password</mat-label>
-				<input matInput placeholder="Password" name="password">
+				<input matInput placeholder="Password" formControlName="password" name="password">
+				<mat-error *ngIf="form.get('password').invalid && form.get('password').touched">
+					<span *ngIf="form.get('password').hasError('required')">
+						Please write password
+					</span>
+					<span *ngIf="form.get('password').hasError('minlength')">
+						Min length 6 letters
+					</span>
+				</mat-error>
 			</mat-form-field>
+			<mat-card-actions>
+				<button mat-raised-button
+				[disabled]="form.invalid || form.disabled"
+				type="submit"
+				color="primary"
+				>
+					LOGIN
+				</button>
+			</mat-card-actions>
 		</form>
 	</mat-card-content>
-	<mat-card-actions>
-		<button mat-raised-button type="submit" color="primary">LOGIN</button>
-	</mat-card-actions>
 </mat-card>

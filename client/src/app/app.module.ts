@@ -23,6 +23,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { NavigationComponent } from './component/navigation/navigation.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
@@ -38,6 +39,8 @@ import { NavigationComponent } from './component/navigation/navigation.component
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		ReactiveFormsModule,
+		HttpClientModule,
+		
 		MatToolbarModule,
 		MatIconModule,
 		MatNativeDateModule,

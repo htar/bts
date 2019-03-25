@@ -5,14 +5,14 @@ const {  errorHandler } = require('../../utils');
 
 async function updateUser(req, res) {
     try {
-        const User = await User.findOneAndUpdate({
+        const user = await User.findOneAndUpdate({
             _id: req.params.id
         }, {
             $set: req.body
         }, {
             new: true
         });
-        res.status(200).json(User);
+        res.status(200).json(user);
     } catch (error) {
         errorHandler(res, error);
     }
