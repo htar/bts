@@ -31,12 +31,12 @@ async function login (req, res) {
             });
             
         } else {
-            errorHandler({message:'Incorrect password, please repeat'});
+            errorHandler(res,{message:'Incorrect password, please repeat'});
         }
         
     } else {
         // user dont find
-        errorHandler({ message:'Email or User name not correct.'});
+        errorHandler(res,{ message:'Email or User name not correct.'});
     }
 }
 
