@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-// import { PasswordValidation } from '../../shared/password-validation';
+import { PasswordValidation } from '../../shared/password-validation';
 
 @Component({
 	selector: 'app-register-page',
@@ -23,20 +23,20 @@ export class RegisterPageComponent implements OnInit {
 		private auth: AuthService,
 		private router: Router,
 		private formBuilder: FormBuilder
-	) {}
+	) { }
 
 	ngOnInit() {
 		this.form = this.formBuilder.group({
 			email: ['', [Validators.required, Validators.email]],
-			username: ['',[Validators.required, Validators.minLength(4)]],
+			username: ['', [Validators.required, Validators.minLength(4)]],
 			firstName: ['', Validators.required],
 			lastName: ['', Validators.required],
 			address: ['', Validators.required],
-			password: ['',[ Validators.required, Validators.minLength(6)]],
-			// confirmPassword: ['',[PasswordValidation.MatchPassword, Validators.required, Validators.minLength(6)]],
-			date: ['',Validators.required],
-			gender: ['',Validators.required],
-		});
+			password: ['', [Validators.required, Validators.minLength(6)]],
+			confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+			date: ['', Validators.required],
+			gender: ['', Validators.required],
+		}, PasswordValidation.MatchPassword);
 	}
 	ngOnDestroy() {
 		if (this.aSub) {
