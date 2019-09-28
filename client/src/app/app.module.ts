@@ -20,18 +20,20 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { NavigationComponent } from './component/navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		LoginPageComponent,
-		SiteLayoutComponent,
+		AuthLayoutComponent,
 		RegisterPageComponent,
 		NavigationComponent,
+		OverviewPageComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -40,7 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
 		BrowserAnimationsModule,
 		ReactiveFormsModule,
 		HttpClientModule,
-		
+
 		MatToolbarModule,
 		MatIconModule,
 		MatNativeDateModule,
