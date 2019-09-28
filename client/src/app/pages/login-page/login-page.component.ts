@@ -1,4 +1,5 @@
 import { AuthService } from './../../services/auth.service';
+import { MaterialService } from '../../services/material.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -11,11 +12,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
 	form: FormGroup;
-	aSub: Subscription
+	aSub: Subscription;
 
-	constructor(private auth: AuthService,
-		private router:Router,
-		private route: ActivatedRoute
+	constructor(
+		private auth: AuthService,
+		private router: Router,
+		private route: ActivatedRoute,
+		private materialService: MaterialService
 	) {}
 
 	ngOnInit() {
@@ -29,35 +32,30 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 				Validators.minLength(6),
 			]),
 		});
-		this.route.queryParams.subscribe((params:Params)=>{
+		this.route.queryParams.subscribe((params: Params) => {
 			if (params['registered']) {
-			// You can login in system use your data
+				// You can login in system use your data
 			} else if (params['accessDenied']) {
-			// Please login in system
+				// Please login in system
 			}
-		})
+		});
 	}
-	ngOnDestroy(){
+	ngOnDestroy() {
 		if (this.aSub) {
-			this.aSub.unsubscribe()
+			this.aSub.unsubscribe();
 		}
 	}
 	onSubmit() {
-		// const user = {
-		// 	email: this.form.value.email,
-		// 	password: this.form.value.password,
-		// };
-		this.form.disable()
-		this.aSub =  this.auth
-		.login(this.form.value)
-		.subscribe(
+		this.form.disable();
+		this.aSub = this.auth.login(this.form.value).subscribe(
 			() => {
-				this.router.navigate(['/overview'])
+				this.router.navigate(['/api/overview']);
 			},
-			errors => {
-				console.warn('Login error')
-				this.form.enable()
+			error => {
+				this.materialService.openSnackBar(error.error.message, 'ok');
+				this.form.enable();
+				this.form.reset();
 			}
-			);
+		);
 	}
 }

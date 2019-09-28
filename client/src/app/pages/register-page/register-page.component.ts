@@ -1,5 +1,6 @@
 import { AuthService } from '../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { MaterialService } from '../../services/material.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
 	FormControl,
 	FormGroup,
@@ -8,21 +9,21 @@ import {
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { PasswordValidation } from '../../shared/password-validation';
 
 @Component({
 	selector: 'app-register-page',
 	templateUrl: './register-page.component.html',
 	styleUrls: ['./register-page.component.styl'],
 })
-export class RegisterPageComponent implements OnInit {
+export class RegisterPageComponent implements OnInit, OnDestroy {
 	form: FormGroup;
 	aSub: Subscription;
 
 	constructor(
 		private auth: AuthService,
 		private router: Router,
-		private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private materialService: MaterialService
 	) { }
 
 	ngOnInit() {
@@ -33,10 +34,9 @@ export class RegisterPageComponent implements OnInit {
 			lastName: ['', Validators.required],
 			address: ['', Validators.required],
 			password: ['', [Validators.required, Validators.minLength(6)]],
-			confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
 			date: ['', Validators.required],
 			gender: ['', Validators.required],
-		}, PasswordValidation.MatchPassword);
+		});
 	}
 	ngOnDestroy() {
 		if (this.aSub) {
@@ -46,11 +46,15 @@ export class RegisterPageComponent implements OnInit {
 	onSubmit() {
 		this.form.disable();
 		this.aSub = this.auth.register(this.form.value).subscribe(
-			() => {
-				this.router.navigate(['/overview']);
+			(data) => {
+				this.router.navigate(['/app/login', {
+					queryParams: {
+						register: true
+					}
+				}]);
 			},
-			errors => {
-				console.warn('Login error');
+			error => {
+				this.materialService.openSnackBar(error.error.message, 'ok');
 				this.form.enable();
 			}
 		);
