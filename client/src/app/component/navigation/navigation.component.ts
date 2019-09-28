@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { Links } from '../../shared/interfaces/interfaces';
 
 @Component({
 	selector: 'app-navigation',
 	templateUrl: './navigation.component.html',
 	styleUrls: ['./navigation.component.styl'],
 })
+@Injectable()
 export class NavigationComponent implements OnInit {
-	routs: any = [
-		{link: 'login',
-		icon: 'input',
-		name: 'Log in' },
-		{link: 'register',
-		icon: 'fingerprint',
-		name: 'Sign Up' },
-	];
-	constructor() {}
+	@Input() links: Links[];
 
-	ngOnInit() {}
+	constructor() { }
+
+	ngOnInit() { }
 }

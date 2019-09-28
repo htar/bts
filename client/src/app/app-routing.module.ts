@@ -1,5 +1,6 @@
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,11 +9,13 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import {OverviewPageComponent} from './pages/overview-page/overview-page.component';
 
 const routes: Routes = [
-	{ path: 'overview', component: OverviewPageComponent },
 	{ path: '', redirectTo: '/app/login', pathMatch: 'full' },
 	{ path: 'app', component: AuthLayoutComponent, children: [
 			{ path: 'login', component: LoginPageComponent },
 			{ path: 'register', component: RegisterPageComponent }
+	] },
+	{ path: 'api', component: SiteLayoutComponent, children: [
+		{path: 'overview', component: OverviewPageComponent}
 	] },
 ];
 

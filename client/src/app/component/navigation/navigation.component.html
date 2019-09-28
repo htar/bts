@@ -8,7 +8,7 @@
 	<mat-toolbar-row>
 		<nav>
 			<ul>
-				<li *ngFor="let rout of routs" routerLinkActive="active" routerLink="/app/{{rout.link}}">
+				<li *ngFor="let rout of links" routerLinkActive="active" routerLink="/app/{{rout.link}}">
 					<mat-icon class="icon">{{rout.icon}}</mat-icon>
 					{{rout.name}}
 				</li>

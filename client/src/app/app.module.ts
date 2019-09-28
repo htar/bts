@@ -13,6 +13,7 @@ import {
 	MatInputModule,
 	MatListModule,
 	MatRadioModule,
+	MatSnackBarModule,
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -25,6 +26,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { NavigationComponent } from './component/navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
+import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
 
 @NgModule({
 	declarations: [
@@ -34,6 +36,7 @@ import { OverviewPageComponent } from './pages/overview-page/overview-page.compo
 		RegisterPageComponent,
 		NavigationComponent,
 		OverviewPageComponent,
+		SiteLayoutComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -47,6 +50,7 @@ import { OverviewPageComponent } from './pages/overview-page/overview-page.compo
 		MatIconModule,
 		MatNativeDateModule,
 		MatDatepickerModule,
+		MatSnackBarModule,
 		MatButtonModule,
 		MatCheckboxModule,
 		MatCardModule,
