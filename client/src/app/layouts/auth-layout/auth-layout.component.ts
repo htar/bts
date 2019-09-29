@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Links } from 'src/app/shared/interfaces/interfaces';
+import { Links } from 'src/app/shared/interfaces';
 
 @Component({
 	selector: 'app-auth-layout',
@@ -10,11 +10,11 @@ export class AuthLayoutComponent implements OnInit {
 	authLinks: Links[] = [
 		{
 			link: 'login',
-			icon: 'input',
+			icon: 'meeting_room',
 			name: 'Log in'
 		},
 		{
-			link: 'register',
+			link: 'registration',
 			icon: 'fingerprint',
 			name: 'Sign Up'
 		},

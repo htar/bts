@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../shared/interfaces/User';
+import { User } from '../shared/interfaces';
 import { tap } from 'rxjs/operators';
 
 

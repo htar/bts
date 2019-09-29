@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Injectable } from '@angular/core';
-import { Links } from '../../shared/interfaces/interfaces';
+import { Links } from '../../shared/interfaces';
 
 @Component({
 	selector: 'app-navigation',

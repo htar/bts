@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Links } from 'src/app/shared/interfaces/interfaces';
+import { Links } from 'src/app/shared/interfaces';
 
 @Component({
 	selector: 'app-site-layout',

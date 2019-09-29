@@ -6,21 +6,27 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import {OverviewPageComponent} from './pages/overview-page/overview-page.component';
+import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
+import { AuthGuard } from './shared/classes/auth.guard';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/app/login', pathMatch: 'full' },
-	{ path: 'app', component: AuthLayoutComponent, children: [
+	{
+		path: '', component: AuthLayoutComponent, children: [
+			{ path: '', redirectTo: '/login', pathMatch: 'full' },
 			{ path: 'login', component: LoginPageComponent },
-			{ path: 'register', component: RegisterPageComponent }
-	] },
-	{ path: 'api', component: SiteLayoutComponent, children: [
-		{path: 'overview', component: OverviewPageComponent}
-	] },
+			{ path: 'logout', component: LoginPageComponent },
+			{ path: 'registration', component: RegisterPageComponent }
+		]
+	},
+	{
+		path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: [
+			{ path: 'projects', component: ProjectsPageComponent }
+		]
+	},
 ];
 
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

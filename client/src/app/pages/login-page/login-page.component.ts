@@ -22,6 +22,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit() {
+		if (this.router.url.includes('logout')) {
+			this.auth.logout();
+		}
 		this.form = new FormGroup({
 			email: new FormControl(null, [
 				Validators.required,
@@ -34,9 +37,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 		});
 		this.route.queryParams.subscribe((params: Params) => {
 			if (params['registered']) {
-				// You can login in system use your data
+				this.materialService.openSnackBar('So You can login', 'ok');
 			} else if (params['accessDenied']) {
-				// Please login in system
+				this.materialService.openSnackBar('Please register new account', 'ok');
+			} else if (params['sessionFailed']) {
+				this.materialService.openSnackBar('Please Login again', 'ok');
 			}
 		});
 	}
@@ -49,7 +54,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 		this.form.disable();
 		this.aSub = this.auth.login(this.form.value).subscribe(
 			() => {
-				this.router.navigate(['/api/overview']);
+				this.router.navigate(['/projects']);
 			},
 			error => {
 				this.materialService.openSnackBar(error.error.message, 'ok');
