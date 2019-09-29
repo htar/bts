@@ -13,8 +13,8 @@ export class ProjectService {
 			.get<Project[]>('/api/project')
 			.pipe(map(data => Object.keys(data).map(k => data[k])));
 	}
-	getById(id: string): Observable<Project> {
-		return this.http.get<Project>(`/api/project/${id}`);
+	getById(id: string): Observable<any> {
+		return this.http.get<any>(`/api/project/${id}`);
 	}
 
 	create(project: Project): Observable<Project> {

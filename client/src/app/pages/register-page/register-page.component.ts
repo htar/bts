@@ -47,7 +47,8 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
 		this.form.disable();
 		this.aSub = this.auth.register(this.form.value).subscribe(
 			(data) => {
-				this.router.navigate(['/app/login', {
+				this.materialService.openSnackBar('You were registered, please Log in', 'ok');
+				this.router.navigate(['/login', {
 					queryParams: {
 						register: true
 					}

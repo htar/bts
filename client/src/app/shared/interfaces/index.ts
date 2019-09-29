@@ -35,3 +35,10 @@ export interface Comment {
 	issue: string;
 	comments: Array<string>;
 }
+
+export interface Category {
+	_id: string;
+	name: string;
+	createdAt?: Date;
+	project: string;
+}

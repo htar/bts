@@ -10,7 +10,7 @@ export class AuthLayoutComponent implements OnInit {
 	authLinks: Links[] = [
 		{
 			link: 'login',
-			icon: 'meeting_room',
+			icon: 'public',
 			name: 'Log in'
 		},
 		{

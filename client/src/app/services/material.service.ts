@@ -19,7 +19,7 @@ export class MaterialService {
 		const config = new MatSnackBarConfig();
 		config.verticalPosition = this.verticalPosition;
 		config.horizontalPosition = this.horizontalPosition;
-		config.duration = 2000;
+		config.duration = 5000;
 		this.snackBar.open(message, action, config);
 	}
 
