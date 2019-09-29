@@ -11,7 +11,7 @@
     "server": "nodemon index"
   },
   "engines": {
-    "node": "10.8.0",
+    "node": "12.5.0",
     "npm": "6.2.0"
   },
   "dependencies": {

@@ -1,0 +1,17 @@
+<div class="wrap" *ngIf="projects; else loader">
+	<div class="cards" *ngIf="projects.length !== 0; else empty">
+		<mat-card *ngFor="let project of projects" [routerLink]="['/project',project._id]">
+			<mat-card-title>{{project.name}}</mat-card-title>
+			<mat-card-subtitle>{{project.createdAt | date}}</mat-card-subtitle>
+		</mat-card>
+	</div>
+	<ng-template #empty>
+		<div class="center">
+			You dont have any project
+		</div>
+	</ng-template>
+</div>
+
+<ng-template #loader>
+	<app-loader></app-loader>
+</ng-template>
