@@ -1,0 +1,15 @@
+<h1 class="center">Issues</h1>
+<section class="center">
+	<button mat-raised-button color="primary" (click)="addNewIssue()">Add new Issue</button>
+</section>˝
+
+<div class="wrap" *ngIf="issues;">
+	<div class="cards" *ngIf="issues.length !== 0;">
+		<mat-card [ngClass]="issue.status" *ngFor="let issue of issues" [routerLink]="['/issue',issue._id]">
+			<mat-card-title>{{issue.title}}</mat-card-title>
+			<div class="">{{ issue.description}}</div>
+			<mat-card-subtitle>{{issue.createdAt | date}} {{ issue.status}}</mat-card-subtitle>
+		</mat-card>
+	</div>
+
+</div>

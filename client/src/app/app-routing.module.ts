@@ -8,6 +8,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { AuthGuard } from './shared/classes/auth.guard';
+import { ProjectPageComponent } from './pages/project-page/project-page.component';
 
 const routes: Routes = [
 	{
@@ -20,7 +21,8 @@ const routes: Routes = [
 	},
 	{
 		path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: [
-			{ path: 'projects', component: ProjectsPageComponent }
+			{ path: 'projects', component: ProjectsPageComponent },
+			{ path: 'project/:id', component: ProjectPageComponent }
 		]
 	},
 ];

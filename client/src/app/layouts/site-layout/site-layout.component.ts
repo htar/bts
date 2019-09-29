@@ -9,6 +9,11 @@ import { Links } from 'src/app/shared/interfaces';
 export class SiteLayoutComponent implements OnInit {
 	siteLinks: Links[] = [
 		{
+			link: 'projects',
+			icon: 'storefront',
+			name: 'Project'
+		},
+		{
 			link: 'logout',
 			icon: 'input',
 			name: 'Log Out'

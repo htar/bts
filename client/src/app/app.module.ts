@@ -13,7 +13,9 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { TokenInterceptor } from './shared/classes/token.interceptor';
 import { MaterialModule } from './shared/modules/material.module';
 import { LoaderComponent } from './component/loader/loader.component';
+import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import { AngularModule } from './shared/modules/angular.module';
+import { IssueFormComponent } from './component/issue-form/issue-form.component';
 
 @NgModule({
 	declarations: [
@@ -25,6 +27,8 @@ import { AngularModule } from './shared/modules/angular.module';
 		SiteLayoutComponent,
 		ProjectsPageComponent,
 		LoaderComponent,
+		ProjectPageComponent,
+		IssueFormComponent,
 	],
 	imports: [
 		AppRoutingModule,
