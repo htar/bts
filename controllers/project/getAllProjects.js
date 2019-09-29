@@ -5,7 +5,7 @@ async function getAllProjects(req, res) {
     try {
         const projects = await Project.find();
         res.status(200).json({
-            projects
+            ...projects
         });
 
     } catch (error) {
