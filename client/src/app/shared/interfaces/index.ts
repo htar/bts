@@ -12,8 +12,26 @@ export interface Project {
 	_id: string;
 	name: string;
 	createdAt?: Date;
-	user?: string;
-	__v?: number;
+	user: string;
 	list?: any;
 	imageSrc?: string;
+}
+
+export interface Issue {
+	_id: string;
+	status: string;
+	assignUser: Array<string>;
+	subscribeUser: Array<string>;
+	createdAt?: Date;
+	title: string;
+	description: string;
+	user: string;
+	project: string;
+}
+export interface Comment {
+	_id: string;
+	title: string;
+	commentedBy: string;
+	issue: string;
+	comments: Array<string>;
 }
