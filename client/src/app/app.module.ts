@@ -1,20 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-	MatNativeDateModule,
-	MatDatepickerModule,
-	MatIconModule,
-	MatButtonModule,
-	MatCheckboxModule,
-	MatToolbarModule,
-	MatCardModule,
-	MatFormFieldModule,
-	MatInputModule,
-	MatListModule,
-	MatRadioModule,
-	MatSnackBarModule,
-} from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,9 +10,12 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { NavigationComponent } from './component/navigation/navigation.component';
-import { HttpClientModule } from '@angular/common/http';
-import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
+import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
+import { TokenInterceptor } from './shared/classes/token.interceptor';
+import { MaterialModule } from './shared/modules/material.module';
+import { LoaderComponent } from './component/loader/loader.component';
 
 @NgModule({
 	declarations: [
@@ -35,8 +24,9 @@ import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component
 		AuthLayoutComponent,
 		RegisterPageComponent,
 		NavigationComponent,
-		OverviewPageComponent,
 		SiteLayoutComponent,
+		ProjectsPageComponent,
+		LoaderComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -46,20 +36,13 @@ import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component
 		ReactiveFormsModule,
 		HttpClientModule,
 
-		MatToolbarModule,
-		MatIconModule,
-		MatNativeDateModule,
-		MatDatepickerModule,
-		MatSnackBarModule,
-		MatButtonModule,
-		MatCheckboxModule,
-		MatCardModule,
-		MatFormFieldModule,
-		MatInputModule,
-		MatListModule,
-		MatRadioModule,
+		MaterialModule
 	],
-	providers: [],
+	providers: [{
+		provide: HTTP_INTERCEPTORS,
+		multi: true,
+		useClass: TokenInterceptor
+	}],
 	bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
