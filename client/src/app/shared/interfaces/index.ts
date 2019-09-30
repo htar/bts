@@ -18,15 +18,15 @@ export interface Project {
 }
 
 export interface Issue {
-	_id: string;
-	status: string;
-	assignUser: Array<string>;
-	subscribeUser: Array<string>;
-	createdAt?: Date;
+	_id?: string;
 	title: string;
 	description: string;
-	user: string;
-	project: string;
+	projectId: string;
+	status: string;
+	assignUser?: Array<string>;
+	subscribeUser?: Array<string>;
+	createdAt?: Date;
+	user?: string;
 }
 export interface Comment {
 	_id: string;
@@ -41,4 +41,9 @@ export interface Category {
 	name: string;
 	createdAt?: Date;
 	project: string;
+}
+
+export interface Status {
+	value: string;
+	viewValue: string;
 }
