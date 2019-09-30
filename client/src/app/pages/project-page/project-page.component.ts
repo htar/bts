@@ -1,18 +1,20 @@
 import { MaterialService } from './../../services/material.service';
 import { IssueService } from './../../services/issue.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project, Issue, Category } from 'src/app/shared/interfaces';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { IssueFormComponent } from 'src/app/component/issue-form/issue-form.component';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-project-page',
 	templateUrl: './project-page.component.html',
 	styleUrls: ['./project-page.component.styl'],
 })
-export class ProjectPageComponent implements OnInit {
+export class ProjectPageComponent implements OnInit, OnDestroy {
+	aSub: Subscription;
 	id: string;
 	project: Project;
 	issues: Issue[] = [];
@@ -28,12 +30,16 @@ export class ProjectPageComponent implements OnInit {
 	ngOnInit() {
 		const id = this.route.snapshot.paramMap.get('id');
 		if (id) {
-			this.projectService.getById(id).subscribe(data => {
+			this.aSub = this.projectService.getById(id).subscribe(data => {
 				this.project = data.project;
 				this.issues = data.issues;
-
 				// this.categories = data.categories;
 			});
+		}
+	}
+	ngOnDestroy() {
+		if (this.aSub) {
+			this.aSub.unsubscribe();
 		}
 	}
 	addNewIssue() {
@@ -47,9 +53,7 @@ export class ProjectPageComponent implements OnInit {
 			description: '',
 			status: 'open',
 		};
-
 		const dialogRef = this.dialog.open(IssueFormComponent, dialogConfig);
-
 		dialogRef.afterClosed().subscribe(data => {
 			if (!data) {
 				return;

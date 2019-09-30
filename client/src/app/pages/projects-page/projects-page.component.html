@@ -1,4 +1,26 @@
 <h1 class="center">Projects</h1>
+<section class="center">
+	<button mat-raised-button *ngIf="!showProjectForm; else formWrap" color="primary" (click)="showForm()">Add new Project
+	</button>
+	<ng-template #formWrap>
+		<form [formGroup]="form" class='project-form'>
+			<input matInput placeholder="Please update name" formControlName="name">
+			<button mat-flat-button color="accent" [disabled]="form.invalid || form.disabled"
+				(click)=addNewProject()>Save</button>
+			<div class="errors">
+				<mat-error *ngIf="form.get('name').invalid && form.get('name').touched">
+					<span *ngIf="form.get('name').hasError('required')">
+						Please write name
+					</span>
+					<span *ngIf="form.get('name').hasError('minlength')">
+						Min length 6 letters
+					</span>
+				</mat-error>
+			</div>
+		</form>
+	</ng-template>
+</section>
+
 <div class="wrap" *ngIf="projects; else loader">
 	<div class="cards" *ngIf="projects.length !== 0; else empty">
 		<app-project-card [project]="project" *ngFor="let project of projects"
