@@ -1,5 +1,4 @@
-:root
-	--padding: 10px
+
 
 .card-title
 	display: grid
@@ -34,14 +33,14 @@ mat-card
 	margin-left: 5px
 	background-color: #ccc
 	&.open
-		background: green
-		color: #fff
+		background: var(--accent-color)
+		color: var(--primary-text)
 	&.todo
 		background: orange
-		color: #000
+		color: var(--secondary-text-hue)
 	&.progress
 		background: yellow
 		color: #000
 	&.closed
-		background: red
-		color: #fff
+		background: --danger-color
+		color: var(--primary-text)
