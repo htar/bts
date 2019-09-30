@@ -6,20 +6,8 @@
 					{{project.name}}
 				</span>
 				<ng-template #projectForm>
-					<form action="" [formGroup]="form">
-						<input matInput placeholder="Please update name" formControlName="name">
-						<button mat-flat-button color="accent" (click)=updateProject(project)>Save</button>
-						<div class="errors">
-							<mat-error *ngIf="form.get('name').invalid && form.get('name').touched">
-								<span *ngIf="form.get('name').hasError('required')">
-									Please write name
-								</span>
-								<span *ngIf="form.get('name').hasError('minlength')">
-									Min length 6 letters
-								</span>
-							</mat-error>
-						</div>
-					</form>
+					<app-project-form [project]="project" (hideProjectForm)="showProjectForm = !showProjectForm">
+					</app-project-form>
 				</ng-template>
 			</div>
 			<div class="buttons">

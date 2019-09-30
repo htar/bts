@@ -18,6 +18,7 @@ import { AngularModule } from './shared/modules/angular.module';
 import { IssueFormComponent } from './component/issue-form/issue-form.component';
 import { IssueCardComponent } from './component/issue-card/issue-card.component';
 import { ProjectCardComponent } from './component/project-card/project-card.component';
+import { ProjectFormComponent } from './component/project-form/project-form.component';
 
 @NgModule({
 	declarations: [
@@ -33,6 +34,7 @@ import { ProjectCardComponent } from './component/project-card/project-card.comp
 		IssueFormComponent,
 		IssueCardComponent,
 		ProjectCardComponent,
+		ProjectFormComponent,
 	],
 	imports: [
 		AppRoutingModule,
