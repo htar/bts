@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import {  Status } from 'src/app/shared/interfaces';
 
+interface Status {
+	value: string;
+}
 @Component({
 	selector: 'app-issue-form',
 	templateUrl: './issue-form.component.html',
@@ -13,12 +15,12 @@ export class IssueFormComponent implements OnInit {
 	description: string;
 	title: string;
 	statuses: Status[] = [
-		{ value: 'open', viewValue: 'Open' },
-		{ value: 'todo', viewValue: 'To do' },
-		{ value: 'progress', viewValue: 'In progress' },
-		{ value: 'closed', viewValue: 'Closed' },
+		{ value: 'open' },
+		{ value: 'todo' },
+		{ value: 'progress' },
+		{ value: 'closed' },
 	];
-	status: Status = this.statuses[0];
+	selected: string = this.statuses[0].value;
 
 	constructor(
 		private fb: FormBuilder,
@@ -27,7 +29,7 @@ export class IssueFormComponent implements OnInit {
 	) {
 		this.description = data.description;
 		this.title = data.title;
-		this.status = data.status;
+		this.selected = data.status;
 	}
 	ngOnInit() {
 		this.form = this.fb.group({
@@ -36,7 +38,7 @@ export class IssueFormComponent implements OnInit {
 				[Validators.required, Validators.minLength(6)],
 			],
 			title: [this.title || '', [Validators.required, Validators.minLength(6)]],
-			status: [this.status || this.statuses[0], [Validators.required]],
+			status: [this.selected, [Validators.required]],
 		});
 	}
 	save() {

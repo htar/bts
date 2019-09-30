@@ -5,7 +5,7 @@
 
 <div class="wrap" *ngIf="issues; else loader">
 	<div class="cards" *ngIf="issues.length !== 0; else empty">
-		<mat-card [ngClass]="issue.status" *ngFor="let issue of issues" >
+		<mat-card  *ngFor="let issue of issues" >
 			<mat-card-title>
 				<div class="card-title">
 					<span [routerLink]="['/issue',issue._id]">
@@ -18,7 +18,11 @@
 				</div>
 			</mat-card-title>
 			<div class="">{{ issue.description}}</div>
-			<mat-card-subtitle>{{issue.createdAt | date}} {{ issue.status}}</mat-card-subtitle>
+			<mat-card-subtitle>{{issue.createdAt | date}}
+				<span class="status" [ngClass]="issue.status">
+					{{ issue.status}}
+				</span>
+			</mat-card-subtitle>
 		</mat-card>
 	</div>
 	<ng-template #empty>

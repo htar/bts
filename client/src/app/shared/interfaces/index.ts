@@ -43,7 +43,4 @@ export interface Category {
 	project: string;
 }
 
-export interface Status {
-	value: string;
-	viewValue: string;
-}
+

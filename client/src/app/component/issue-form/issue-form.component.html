@@ -25,9 +25,9 @@
 	</mat-form-field>
 	<mat-form-field>
 		<mat-label>Please Select Status</mat-label>
-		<mat-select formControlName="status" [(ngModel)]="status">
+		<mat-select formControlName="status" [(value)]="selected">
 			<mat-option *ngFor="let s of statuses" [value]="s.value">
-				{{s.viewValue}}
+				{{s.value}}
 			</mat-option>
 		</mat-select>
 	</mat-form-field>

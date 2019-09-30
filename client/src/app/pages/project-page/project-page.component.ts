@@ -44,7 +44,7 @@ export class ProjectPageComponent implements OnInit {
 		dialogConfig.data = {
 			title: '',
 			description: '',
-			status: { value: 'open', viewValue: 'Open' },
+			status: 'open',
 		};
 
 		const dialogRef = this.dialog.open(IssueFormComponent, dialogConfig);
@@ -54,14 +54,14 @@ export class ProjectPageComponent implements OnInit {
 				return;
 			}
 			const option = {
-				status: data.status.value,
+				status: data.status,
 				description: data.description,
 				title: data.title,
 				projectId: this.project._id,
 			};
 			this.issueService.create(option).subscribe(
 				issue => {
-					this.issues = this.issues.concat(issue);
+					this.issues = [issue].concat(this.issues);
 					this.materialService.openSnackBar(
 						`Issue ${issue.title} was created`,
 						'ok'
@@ -82,7 +82,7 @@ export class ProjectPageComponent implements OnInit {
 		dialogConfig.data = {
 			title: issue.title,
 			description: issue.description,
-			status: { value: issue.status, viewValue: issue.status },
+			status: issue.status,
 		};
 
 		const dialogRef = this.dialog.open(IssueFormComponent, dialogConfig);
@@ -92,7 +92,7 @@ export class ProjectPageComponent implements OnInit {
 				return;
 			}
 			const option = {
-				status: data.status.value,
+				status: data.status,
 				description: data.description,
 				title: data.title,
 				projectId: this.project._id,
