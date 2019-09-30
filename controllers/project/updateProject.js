@@ -7,7 +7,7 @@ async function updateProject(req, res) {
 
     try {
         const project = await Project.findOneAndUpdate(
-            { _id: req.projectId },
+            { _id: req.params.progectId },
             { $set: updated },
             { new: true }
         );

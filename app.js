@@ -11,14 +11,15 @@ const config = require('./config/default');
 const middleware = require('./middleware');
 
 mongoose.set('useCreateIndex', true);
-mongoose.connect(config.mongoURI,{ useNewUrlParser: true })
-    .then(()=>console.log('MongoDB connected'))
-    .catch(error=> console.log(error));
+mongoose
+	.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+	.then(() => console.log('MongoDB connected'))
+	.catch(error => console.log(error));
 
 app.use(passport.initialize());
 middleware.passport(passport);
 
-app.use('/public',express.static('public'));
+app.use('/public', express.static('public'));
 
 app.use(morgan('dev'));
 app.use(cors());
@@ -27,7 +28,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/api', routers);
-
-
 
 module.exports = app;
