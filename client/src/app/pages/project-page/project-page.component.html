@@ -5,25 +5,8 @@
 
 <div class="wrap" *ngIf="issues; else loader">
 	<div class="cards" *ngIf="issues.length !== 0; else empty">
-		<mat-card  *ngFor="let issue of issues" >
-			<mat-card-title>
-				<div class="card-title">
-					<span [routerLink]="['/issue',issue._id]">
-						{{issue.title}}
-					</span>
-					<div class="buttons">
-							<button mat-flat-button color="accent" (click)=updateIssue(issue)>Edit</button>
-							<button mat-flat-button color="warn" (click)=removeIssue(issue)>Remove</button>
-					</div>
-				</div>
-			</mat-card-title>
-			<div class="">{{ issue.description}}</div>
-			<mat-card-subtitle>{{issue.createdAt | date}}
-				<span class="status" [ngClass]="issue.status">
-					{{ issue.status}}
-				</span>
-			</mat-card-subtitle>
-		</mat-card>
+		<app-issue-item [issue]="issue" *ngFor="let issue of issues" (removeIssueEmit)="removeIssue($event)">
+		</app-issue-item>
 	</div>
 	<ng-template #empty>
 		<div class="center">

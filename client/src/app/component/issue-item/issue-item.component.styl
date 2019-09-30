@@ -1,0 +1,45 @@
+
+.card-title
+	display: grid
+	grid-template-columns: 1fr 200px
+	grid-gap: var(--padding)
+
+
+.buttons
+	opacity: 0
+	visibility: hidden
+	transition: all .3s ease
+	display: grid
+	grid-template-columns: 1fr 1fr
+	grid-gap: var(--padding)
+
+mat-card
+	&:hover
+		.buttons
+			opacity: 1
+			visibility: visible
+			transition: all .3s ease
+
+.card-title span
+	cursor: pointer
+	&:hover
+		opacity: .7
+
+.status
+	padding: 2px
+	display: inline-block
+	border-radius: 3px
+	margin-left: 5px
+	background-color: #ccc
+	&.open
+		background: green
+		color: #fff
+	&.todo
+		background: orange
+		color: #000
+	&.progress
+		background: yellow
+		color: #000
+	&.closed
+		background: red
+		color: #fff

@@ -19,7 +19,7 @@ export class IssueService {
 	update(issue: Issue): Observable<Issue> {
 		return this.http.patch<Issue>(`/api/issue/${issue._id}`, issue);
 	}
-	delete(issue: Issue): Observable<Issue> {
+	delete(issue: Issue): Observable<any> {
 		return this.http.delete<Issue>(`/api/issue/${issue._id}`);
 	}
 }

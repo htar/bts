@@ -73,67 +73,11 @@ export class ProjectPageComponent implements OnInit {
 			);
 		});
 	}
-	updateIssue(issue) {
-		const dialogConfig = new MatDialogConfig();
-
-		dialogConfig.disableClose = false;
-		dialogConfig.autoFocus = true;
-
-		dialogConfig.data = {
-			title: issue.title,
-			description: issue.description,
-			status: issue.status,
-		};
-
-		const dialogRef = this.dialog.open(IssueFormComponent, dialogConfig);
-
-		dialogRef.afterClosed().subscribe(data => {
-			if (!data) {
-				return;
+	removeIssue(e) {
+		for (let i = 0; i < this.issues.length; i++) {
+			if (this.issues[i]._id === e._id) {
+				this.issues.splice(i, 1);
 			}
-			const option = {
-				status: data.status,
-				description: data.description,
-				title: data.title,
-				projectId: this.project._id,
-				_id: issue._id,
-			};
-			this.issueService.update(option).subscribe(
-				item => {
-					for (let i = 0; i < this.issues.length; i++) {
-						if (this.issues[i]._id === issue._id) {
-							this.issues.splice(i, 1, item);
-						}
-					}
-					this.materialService.openSnackBar(
-						`Issue ${item.title} was updated`,
-						'ok'
-					);
-				},
-				error => {
-					this.materialService.openSnackBar(error.error.message, 'ok');
-				}
-			);
-		});
-	}
-	removeIssue(issue) {
-		const decision = window.confirm(
-			`Are you realy want remove Issue ${issue.title}`
-		);
-		if (decision) {
-			this.issueService.delete(issue).subscribe(
-				(data: any) => {
-					for (let i = 0; i < this.issues.length; i++) {
-						if (this.issues[i]._id === issue._id) {
-							this.issues.splice(i, 1);
-						}
-					}
-					this.materialService.openSnackBar(data.message, 'ok');
-				},
-				error => {
-					this.materialService.openSnackBar(error.error.message, 'ok');
-				}
-			);
 		}
 	}
 }
