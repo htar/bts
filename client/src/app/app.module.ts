@@ -16,7 +16,7 @@ import { LoaderComponent } from './component/loader/loader.component';
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import { AngularModule } from './shared/modules/angular.module';
 import { IssueFormComponent } from './component/issue-form/issue-form.component';
-import { IssueItemComponent } from './component/issue-item/issue-item.component';
+import { IssueCardComponent } from './component/issue-card/issue-card.component';
 
 @NgModule({
 	declarations: [
@@ -30,7 +30,7 @@ import { IssueItemComponent } from './component/issue-item/issue-item.component'
 		LoaderComponent,
 		ProjectPageComponent,
 		IssueFormComponent,
-		IssueItemComponent,
+		IssueCardComponent,
 	],
 	imports: [
 		AppRoutingModule,

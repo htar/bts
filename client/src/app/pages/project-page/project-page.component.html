@@ -5,8 +5,8 @@
 
 <div class="wrap" *ngIf="issues; else loader">
 	<div class="cards" *ngIf="issues.length !== 0; else empty">
-		<app-issue-item [issue]="issue" *ngFor="let issue of issues" (removeIssueEmit)="removeIssue($event)">
-		</app-issue-item>
+		<app-issue-card [issue]="issue" *ngFor="let issue of issues" (removeIssueEmit)="removeIssue($event)">
+		</app-issue-card>
 	</div>
 	<ng-template #empty>
 		<div class="center">

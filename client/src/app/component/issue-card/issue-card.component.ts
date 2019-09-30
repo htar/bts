@@ -6,11 +6,11 @@ import { MatDialogConfig, MatDialog } from '@angular/material';
 import { MaterialService } from 'src/app/services/material.service';
 
 @Component({
-	selector: 'app-issue-item',
-	templateUrl: './issue-item.component.html',
-	styleUrls: ['./issue-item.component.styl'],
+	selector: 'app-issue-card',
+	templateUrl: './issue-card.component.html',
+	styleUrls: ['./issue-card.component.styl'],
 })
-export class IssueItemComponent implements OnInit {
+export class IssueCardComponent implements OnInit {
 	@Output() removeIssueEmit = new EventEmitter<Issue>();
 	@Input() issue: Issue;
 	constructor(
