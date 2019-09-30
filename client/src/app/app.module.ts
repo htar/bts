@@ -17,6 +17,7 @@ import { ProjectPageComponent } from './pages/project-page/project-page.componen
 import { AngularModule } from './shared/modules/angular.module';
 import { IssueFormComponent } from './component/issue-form/issue-form.component';
 import { IssueCardComponent } from './component/issue-card/issue-card.component';
+import { ProjectCardComponent } from './component/project-card/project-card.component';
 
 @NgModule({
 	declarations: [
@@ -31,6 +32,7 @@ import { IssueCardComponent } from './component/issue-card/issue-card.component'
 		ProjectPageComponent,
 		IssueFormComponent,
 		IssueCardComponent,
+		ProjectCardComponent,
 	],
 	imports: [
 		AppRoutingModule,

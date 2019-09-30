@@ -1,10 +1,9 @@
-<h1  class="center">Projects</h1>
+<h1 class="center">Projects</h1>
 <div class="wrap" *ngIf="projects; else loader">
 	<div class="cards" *ngIf="projects.length !== 0; else empty">
-		<mat-card *ngFor="let project of projects" [routerLink]="['/project',project._id]">
-			<mat-card-title>{{project.name}}</mat-card-title>
-			<mat-card-subtitle>{{project.createdAt | date}}</mat-card-subtitle>
-		</mat-card>
+		<app-project-card [project]="project" *ngFor="let project of projects"
+			(removeProjectEmit)="removeProject($event)"></app-project-card>
+
 	</div>
 	<ng-template #empty>
 		<div class="center">

@@ -23,7 +23,7 @@ export class ProjectService {
 	update(project: Project): Observable<Project> {
 		return this.http.patch<Project>(`/api/project/${project._id}`, project);
 	}
-	delete(project: Project): Observable<Project> {
+	delete(project: Project): Observable<any> {
 		return this.http.delete<Project>(`/api/project/${project._id}`);
 	}
 }

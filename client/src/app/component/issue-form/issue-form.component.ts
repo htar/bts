@@ -23,7 +23,7 @@ export class IssueFormComponent implements OnInit {
 	selected: string = this.statuses[0].value;
 
 	constructor(
-		private fb: FormBuilder,
+		private formBuilder: FormBuilder,
 		private dialogRef: MatDialogRef<IssueFormComponent>,
 		@Inject(MAT_DIALOG_DATA) data
 	) {
@@ -32,7 +32,7 @@ export class IssueFormComponent implements OnInit {
 		this.selected = data.status;
 	}
 	ngOnInit() {
-		this.form = this.fb.group({
+		this.form = this.formBuilder.group({
 			description: [
 				this.description || '',
 				[Validators.required, Validators.minLength(6)],

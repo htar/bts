@@ -1,0 +1,32 @@
+<mat-card>
+	<mat-card-title>
+		<div class="card-title">
+			<div>
+				<span [routerLink]="['/project',project._id]" *ngIf="!showProjectForm; else projectForm ">
+					{{project.name}}
+				</span>
+				<ng-template #projectForm>
+					<form action="" [formGroup]="form">
+						<input matInput placeholder="Please update name" formControlName="name">
+						<button mat-flat-button color="accent" (click)=updateProject(project)>Save</button>
+						<div class="errors">
+							<mat-error *ngIf="form.get('name').invalid && form.get('name').touched">
+								<span *ngIf="form.get('name').hasError('required')">
+									Please write name
+								</span>
+								<span *ngIf="form.get('name').hasError('minlength')">
+									Min length 6 letters
+								</span>
+							</mat-error>
+						</div>
+					</form>
+				</ng-template>
+			</div>
+			<div class="buttons">
+				<button mat-flat-button color="accent" (click)="showProjectForm = !showProjectForm">Edit</button>
+				<button mat-flat-button color="warn" (click)=removeProject(project)>Remove</button>
+			</div>
+		</div>
+	</mat-card-title>
+	<mat-card-subtitle>{{project.createdAt | date}}</mat-card-subtitle>
+</mat-card>

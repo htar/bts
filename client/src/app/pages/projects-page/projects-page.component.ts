@@ -20,4 +20,11 @@ export class ProjectsPageComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.oSub.unsubscribe();
 	}
+	removeProject(e) {
+		for (let i = 0; i < this.projects.length; i++) {
+			if (this.projects[i]._id === e._id) {
+				this.projects.splice(i, 1);
+			}
+		}
+	}
 }
