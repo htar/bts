@@ -3,13 +3,32 @@
 	<button mat-raised-button color="primary" (click)="addNewIssue()">Add new Issue</button>
 </section>˝
 
-<div class="wrap" *ngIf="issues;">
-	<div class="cards" *ngIf="issues.length !== 0;">
-		<mat-card [ngClass]="issue.status" *ngFor="let issue of issues" [routerLink]="['/issue',issue._id]">
-			<mat-card-title>{{issue.title}}</mat-card-title>
+<div class="wrap" *ngIf="issues; else loader">
+	<div class="cards" *ngIf="issues.length !== 0; else empty">
+		<mat-card [ngClass]="issue.status" *ngFor="let issue of issues" >
+			<mat-card-title>
+				<div class="card-title">
+					<span [routerLink]="['/issue',issue._id]">
+						{{issue.title}}
+					</span>
+					<div class="buttons">
+							<button mat-flat-button color="accent" (click)=updateIssue(issue)>Edit</button>
+							<button mat-flat-button color="warn" (click)=removeIssue(issue)>Remove</button>
+					</div>
+				</div>
+			</mat-card-title>
 			<div class="">{{ issue.description}}</div>
 			<mat-card-subtitle>{{issue.createdAt | date}} {{ issue.status}}</mat-card-subtitle>
 		</mat-card>
 	</div>
+	<ng-template #empty>
+		<div class="center">
+			You dont have any Issues yet
+		</div>
+	</ng-template>
 
 </div>
+
+<ng-template #loader>
+	<app-loader></app-loader>
+</ng-template>

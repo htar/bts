@@ -8,9 +8,11 @@ import {
 	MatCardModule,
 	MatFormFieldModule,
 	MatInputModule,
+	MatDialogModule,
 	MatListModule,
 	MatRadioModule,
 	MatSnackBarModule,
+	MatSelectModule,
 } from '@angular/material';
 
 import { NgModule } from '@angular/core';
@@ -23,12 +25,14 @@ import { NgModule } from '@angular/core';
 		MatDatepickerModule,
 		MatSnackBarModule,
 		MatButtonModule,
+		MatDialogModule,
 		MatCheckboxModule,
 		MatCardModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatListModule,
 		MatRadioModule,
+		MatSelectModule,
 	],
 	exports: [
 		MatToolbarModule,
@@ -39,10 +43,12 @@ import { NgModule } from '@angular/core';
 		MatButtonModule,
 		MatCheckboxModule,
 		MatCardModule,
+		MatDialogModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatListModule,
 		MatRadioModule,
+		MatSelectModule,
 	],
 })
 export class MaterialModule {}

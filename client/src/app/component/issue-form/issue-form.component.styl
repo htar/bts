@@ -1,0 +1,21 @@
+:root
+	--padding: 10px
+
+mat-dialog-content
+	width: 420px
+	display: grid
+	grid-template-rows: 1fr
+	grid-gap: var(--padding)
+
+mat-dialog-actions
+	display: grid
+	grid-template-columns: 1fr 1fr
+	grid-gap: var(--padding)
+
+.center
+	text-align: center
+	grid-gap: var(--padding)
+
+@media screen and (max-width: 735px)
+	mat-dialog-content
+		max-width: 320px

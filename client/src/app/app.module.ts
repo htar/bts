@@ -41,5 +41,6 @@ import { IssueFormComponent } from './component/issue-form/issue-form.component'
 		useClass: TokenInterceptor
 	}],
 	bootstrap: [AppComponent],
+	entryComponents: [IssueFormComponent]
 })
 export class AppModule { }
