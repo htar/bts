@@ -9,6 +9,11 @@ import { Links } from 'src/app/shared/interfaces';
 export class AuthLayoutComponent implements OnInit {
 	authLinks: Links[] = [
 		{
+			link: '',
+			icon: 'home',
+			name: 'Home Page'
+		},
+		{
 			link: 'login',
 			icon: 'public',
 			name: 'Log in'
