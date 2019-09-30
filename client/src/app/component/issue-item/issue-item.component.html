@@ -10,7 +10,9 @@
 			</div>
 		</div>
 	</mat-card-title>
-	<div class="">{{ issue.description}}</div>
+	<mat-card-subtitle>
+		{{ issue.description}}
+	</mat-card-subtitle>
 	<mat-card-subtitle>{{issue.createdAt | date}}
 		<span class="status" [ngClass]="issue.status">
 			{{ issue.status}}

@@ -31,7 +31,8 @@ export class ProjectPageComponent implements OnInit {
 			this.projectService.getById(id).subscribe(data => {
 				this.project = data.project;
 				this.issues = data.issues;
-				this.categories = data.categories;
+
+				// this.categories = data.categories;
 			});
 		}
 	}
