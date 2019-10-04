@@ -2,17 +2,18 @@
   "name": "BTS",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "12.5.0",
-    "npm": "6.2.0"
+  "engines":{
+    "node":"10.15.3",
+    "npm":"6.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client-install": "cd client && yarn ",
-    "client": "cd client && yarn start",
+    "start": "node index",
     "server": "nodemon index",
-    "start": "concurrently -r \"yarn server\" \"yarn client\" ",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn client-install && yarn build --prefix client"
+    "client-install": "npm install --prefix client",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm run client-install && npm run build --prefix client"
   },
   "dependencies": {
     "@angular/cli": "^7.3.1",
