@@ -3,7 +3,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     module.exports = {
         port: 3030,
-        mongoURI: 'mongodb://localhost/bts',
+        mongodbURI: 'mongodb://localhost/bts',
         jwt:'dev-jwt'
     }
 }

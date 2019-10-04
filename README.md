@@ -4,7 +4,7 @@
 
 #### Install dependencies
         cd bts
-        `npm run install-all` or  `yarn install-all`
+        `npm run client-install` then `npm install` or  `yarn client-install` then `yarn`
 
-#### Start dev-client dev-server
-        `npm run start` or  `yarn start`
+#### Start dev-client dev-server locally
+        `npm run dev` or  `yarn dev`

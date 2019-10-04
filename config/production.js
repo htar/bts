@@ -1,5 +1,5 @@
 module.exports = {
-    mongoURI: process.env.MONGO_URI,
+    mongodbURI: process.env.MONGODB_URI,
     jwt: process.env.JWT,
     port: process.env.PORT || 3030,
 }
