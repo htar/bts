@@ -1,0 +1,21 @@
+<h1 class="center">Issues</h1>
+<section class="center">
+	<button mat-raised-button color="primary" (click)="addNewIssue()">Add new Issue</button>
+</section>˝
+
+<div class="wrap" *ngIf="issues; else loader">
+	<div class="cards" *ngIf="issues.length !== 0; else empty">
+		<app-issue-card [issue]="issue" *ngFor="let issue of issues" (removeIssueEmit)="removeIssue($event)">
+		</app-issue-card>
+	</div>
+	<ng-template #empty>
+		<div class="center">
+			You dont have any Issues yet
+		</div>
+	</ng-template>
+
+</div>
+
+<ng-template #loader>
+	<app-loader></app-loader>
+</ng-template>

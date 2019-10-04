@@ -13,6 +13,7 @@ async function createIssue(req, res) {
                 createdAt: now,
                 title: req.body.title,
                 description: req.body.description,
+                status: req.body.status,
                 project: req.body.projectId,
                 user: user.id,
                 subscribeUser: [user.id],

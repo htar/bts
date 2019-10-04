@@ -1,0 +1,46 @@
+<h1 class="center">Issue modal</h1>
+
+<mat-dialog-content [formGroup]="form">
+	<mat-form-field>
+		<input matInput placeholder="Please update title" formControlName="title">
+		<mat-error *ngIf="form.get('title').invalid && form.get('title').touched">
+			<span *ngIf="form.get('title').hasError('required')">
+				Please write title
+			</span>
+			<span *ngIf="form.get('title').hasError('minlength')">
+				Min length 6 letters
+			</span>
+		</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Please update description" formControlName="description">
+		<mat-error *ngIf="form.get('description').invalid && form.get('description').touched">
+			<span *ngIf="form.get('description').hasError('required')">
+				Please write description
+			</span>
+			<span *ngIf="form.get('description').hasError('minlength')">
+				Min length 6 letters
+			</span>
+		</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Please Select Status</mat-label>
+		<mat-select formControlName="status" [(value)]="selected">
+			<mat-option *ngFor="let s of statuses" [value]="s.value">
+				{{s.value}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+	<button class="mat-raised-button" (click)="close()">
+		Close
+	</button>
+
+	<button class="mat-raised-button mat-primary" (click)="save()" [disabled]="form.invalid || form.disabled">
+		Save
+	</button>
+
+</mat-dialog-actions>

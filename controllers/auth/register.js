@@ -23,6 +23,11 @@ async function register(req, res) {
         const user = new User({
             email: req.body.email,
             username: req.body.username,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            address: req.body.address,
+            date: req.body.date,
+            gender: req.body.gender,
             password: bcrypt.hashSync(password, sald)
         });
         try {

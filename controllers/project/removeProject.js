@@ -1,5 +1,6 @@
 const Project = require('../../models/Project');
 const Issue = require('../../models/Issue');
+const Comment = require('../../models/Comment');
 const { errorHandler } = require('../../utils');
 
 async function removeProject(req, res) {
@@ -9,6 +10,7 @@ async function removeProject(req, res) {
     if (project) {
         try {
             await Issue.deleteMany({ project: projectId });
+            await Comment.deleteMany({ project: projectId });
             project.remove().then(() => {
                 res.status(200).json({
                     message: 'Project removed'

@@ -2,7 +2,7 @@ module.exports = {
   trailingComma: "es5",
   tabWidth: 2,
   semi: true,
-  useTabs: false,
+  useTabs: true,
   eslintIntegration: true,
   stylelintIntegration:true,
   eslintIntegration:true,

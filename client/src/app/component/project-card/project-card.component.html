@@ -1,0 +1,20 @@
+<mat-card>
+	<mat-card-title>
+		<div class="card-title">
+			<div>
+				<span [routerLink]="['/project',project._id]" *ngIf="!showProjectForm; else projectForm ">
+					{{project.name}}
+				</span>
+				<ng-template #projectForm>
+					<app-project-form [project]="project" (hideProjectForm)="showProjectForm = !showProjectForm">
+					</app-project-form>
+				</ng-template>
+			</div>
+			<div class="buttons">
+				<button mat-flat-button color="accent" (click)="showProjectForm = !showProjectForm">Edit</button>
+				<button mat-flat-button color="warn" (click)=removeProject(project)>Remove</button>
+			</div>
+		</div>
+	</mat-card-title>
+	<mat-card-subtitle>{{project.createdAt | date}}</mat-card-subtitle>
+</mat-card>

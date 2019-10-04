@@ -1,0 +1,18 @@
+<mat-toolbar class="navigation" color="primary">
+	<mat-toolbar-row>
+		<span routerLink="/{{links[0].link}}" class="logo">
+			<mat-icon class="icon">{{links[0].icon}}</mat-icon>
+			{{links[0].name}}
+		</span>
+	</mat-toolbar-row>
+	<mat-toolbar-row>
+		<nav>
+			<ul>
+				<li *ngFor="let rout of links; index as i" routerLinkActive="active" routerLink="/{{rout.link}}" [ngClass]="{hidden:i===0}">
+					<mat-icon class="icon">{{rout.icon}}</mat-icon>
+					{{rout.name}}
+				</li>
+			</ul>
+		</nav>
+	</mat-toolbar-row>
+</mat-toolbar>

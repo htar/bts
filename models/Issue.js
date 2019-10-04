@@ -27,7 +27,6 @@ const issueSchema = new Schema({
     status: {
         type: String,
         lowercase: true,
-        enum: ['open', 'closed'],
         default:'open'
     },
     user:{

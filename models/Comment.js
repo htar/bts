@@ -22,6 +22,10 @@ var commentSchema = new Schema({
         ref:'issues',
         type: Schema.Types.ObjectId,
     },
+    project:{
+        ref:'projects',
+        type: Schema.Types.ObjectId,
+    },
 });
 
 module.exports = mongoose.model('comments', commentSchema);

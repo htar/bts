@@ -7,7 +7,7 @@ async function getProjectById(req, res) {
     const projectId = req.params.progectId;
     try {
         const project = await Project.findById(projectId);
-        const issues = await Issue.find({project:projectId});
+        const issues = await Issue.find({project:projectId}).sort({'createdAt': -1});
         const categories = await Category.find({project:projectId});
         res.status(200).json({
             issues,

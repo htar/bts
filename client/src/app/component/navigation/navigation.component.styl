@@ -1,0 +1,36 @@
+.navigation
+	display: grid
+	grid-template-columns: 200px 1fr
+
+nav
+	display flex
+	align-items center
+	justify-content flex-end
+	width 100%
+
+li
+	padding 0 var(--padding)
+	cursor: pointer
+	display flex
+	align-items center
+	transition: all .3s ease
+	&.active
+		opacity .6
+	&:last-child
+		padding-right 0
+	&:hover
+		opacity .6
+	&.hidden
+		display none
+
+
+.logo
+	cursor: pointer
+	transition: all .3s ease
+	display flex
+	align-items center
+	&:hover
+		opacity .6
+
+.mat-icon
+	padding 0 var(--padding) 0 0

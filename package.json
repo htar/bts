@@ -2,16 +2,20 @@
   "name": "BTS",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "server": "nodemon index"
-  },
   "engines": {
-    "node": "10.8.0",
+    "node": "12.5.0",
     "npm": "6.2.0"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "cd client && yarn ",
+    "client": "cd client && yarn start",
+    "server": "nodemon index",
+    "start": "concurrently -r \"yarn server\" \"yarn client\" ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn client-install && yarn build --prefix client"
+  },
   "dependencies": {
+    "@angular/cli": "^7.3.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
@@ -25,6 +29,7 @@
     "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "eslint": "^5.6.1",
     "nodemon": "^1.18.4"
   },

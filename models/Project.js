@@ -16,14 +16,7 @@ const projectSchema = new Schema({
         type: String,
         default: ''
     },
-    list: [{
-        name: {
-            type: String,
-        },
-        quantity: {
-            type: Number,
-        }
-    }],
+
     user: {
         ref: 'users',
         type: Schema.Types.ObjectId,
