@@ -22,6 +22,7 @@
   },
   "name": "bts",
   "scripts": {
+    "test": "npm run test --prefix client"
   },
   "stack": "heroku-18"
 }
