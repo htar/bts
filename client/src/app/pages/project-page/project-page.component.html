@@ -1,7 +1,7 @@
 <h1 class="center">Issues</h1>
 <section class="center">
 	<button mat-raised-button color="primary" (click)="addNewIssue()">Add new Issue</button>
-</section>˝
+</section>
 
 <div class="wrap" *ngIf="issues; else loader">
 	<div class="cards" *ngIf="issues.length !== 0; else empty">
