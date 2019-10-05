@@ -26,21 +26,21 @@ export interface Issue {
 	assignUser?: Array<string>;
 	subscribeUser?: Array<string>;
 	createdAt?: Date;
-	user?: string;
+	user?: any;
 }
 export interface Comment {
-	_id: string;
-	title: string;
-	commentedBy: string;
-	issue: string;
-	comments: Array<string>;
+	_id?: string;
+	message: string;
+	commentedBy?: any;
+	createdAt?: Date;
+	issueId: string;
+	projectId: string;
+	comments?: Array<string>;
 }
 
 export interface Category {
-	_id: string;
+	_id?: string;
 	name: string;
 	createdAt?: Date;
 	project: string;
 }
-
-

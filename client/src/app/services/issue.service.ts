@@ -9,8 +9,8 @@ import { Issue } from '../shared/interfaces';
 })
 export class IssueService {
 	constructor(private http: HttpClient) {}
-	getById(id: string): Observable<Issue> {
-		return this.http.get<Issue>(`/api/issue/${id}`);
+	getById(id: string): Observable<any> {
+		return this.http.get<any>(`/api/issue/${id}`);
 	}
 
 	create(issue: Issue): Observable<Issue> {

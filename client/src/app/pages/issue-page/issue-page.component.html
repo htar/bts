@@ -1,3 +1,68 @@
-<p>
-  issue-page works!
-</p>
+<section class="issue" *ngIf="issue; else loader">
+	<h2>{{issue.title}}
+		<span> #{{issue._id}}</span>
+	</h2>
+	<div class='issue-title'>
+		<span class="issue-title-status" [ngClass]="issue.status">{{issue.status}} </span>
+		<span class="issue-title-name">
+			{{issue.user.username}}
+		</span>
+		<span class=issue-title-date>
+			this issue opened on {{issue.createdAt | dateAgo}}.
+			{{commentsLength < 1 ? commentsLength  : commentsLength  -1}}
+			comments
+		</span>
+	</div>
+	<div class="issue-wrap">
+		<div class="">
+			<div class="cards" *ngIf="comments">
+				<mat-card class="issue-content" *ngFor="let comment of comments">
+					<mat-card-subtitle>
+						<span class='issue-content-title'>
+							{{comment.commentedBy.username}}
+						</span>
+						<span>commented {{comment.createdAt| dateAgo}}</span>
+					</mat-card-subtitle>
+					<mat-card-content>
+						<span class='issue-content-text'>
+							{{comment.message}}
+						</span>
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<div class='comment-form'>
+				<div class="comment-form-user">sdfsdfsdfds</div>
+				<form [formGroup]="form">
+					<mat-form-field>
+						<textarea matInput placeholder="Please update message" formControlName="message"></textarea>
+					</mat-form-field>
+					<div class="errors">
+						<mat-error *ngIf="form.get('message').invalid && form.get('message').touched">
+							<span *ngIf="form.get('message').hasError('required')">
+								Please write message
+							</span>
+							<span *ngIf="form.get('message').hasError('minlength')">
+								Min length 30 letters
+							</span>
+						</mat-error>
+					</div>
+					<div class="comment-form-buttons">
+						<button mat-flat-button color="accent" *ngIf="isCloseIssue; else sentMessage"
+							(click)='closeIssue()'>Close issue</button>
+						<ng-template #sentMessage>
+							<button mat-flat-button color="accent" [disabled]="form.invalid || form.disabled"
+								(click)=addNewCommit()>Save</button>
+						</ng-template>
+						<button mat-flat-button color="warn">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<aside></aside>
+	</div>
+</section>
+
+
+<ng-template #loader>
+	<app-loader></app-loader>
+</ng-template>

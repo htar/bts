@@ -17,12 +17,15 @@ h2
 	grid-template-rows: 1fr
 
 .issue
+	&-wrap
+		display grid
+		grid-template-columns: 1fr 250px
+		grid-gap: var(--padding)
 	&-content
 		&-title
 			color: var(--gray-text)
 			font-weight: bold
 			font-size: 1.2em
-
 	&-title
 		padding-bottom: var(--padding)
 		&-name
@@ -44,6 +47,23 @@ h2
 			&.progress
 				background: yellow
 				color: #000
-			&.closed
-				background: --danger-color
+			&.close
+				background: var(--danger-color)
 				color: var(--primary-text)
+
+.comment-form
+	display: grid
+	grid-template-columns: 100px 1fr
+	border: 1px solid var(--primary-color-hue)
+	padding: var(--padding)
+	box-sizing: border-box
+	grid-gap: var(--padding)
+	margin: var(--padding)
+	&-buttons
+		display: flex
+		justify-content: flex-end
+		button
+			margin-left: var(--padding)
+	form
+		display: flex
+		flex-direction: column
