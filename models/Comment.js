@@ -10,7 +10,7 @@ var commentSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    title: String,
+    message: String,
     commentedBy: {
         ref: 'users',
         type: mongoose.Schema.Types.ObjectId

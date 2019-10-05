@@ -27,7 +27,7 @@ async function getIssueById(req, res) {
                     createdAt:1,
                     issue:1,
                     project:1,
-                    title:1,
+                    message:1,
                     __v:1,
                     commentedBy: {
                         '_id' : '$commentedBy._id',
