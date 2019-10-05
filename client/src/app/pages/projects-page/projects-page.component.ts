@@ -14,7 +14,7 @@ export class ProjectsPageComponent implements OnInit, OnDestroy {
 	form: FormGroup;
 	showProjectForm = false;
 	aSub: Subscription;
-	projects: Project[] = [];
+	projects: Project[];
 	constructor(
 		private projectService: ProjectService,
 		private materialService: MaterialService,
