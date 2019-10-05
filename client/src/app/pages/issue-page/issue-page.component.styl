@@ -1,0 +1,49 @@
+h2
+	font-size: 32px
+	font-weight: 400
+	color: #24292e
+	margin-bottom: 0
+	padding: var(--padding)
+	span
+		font-weight: 300
+		color: var(--gray-text)
+		font-size: 24px
+
+.cards
+	padding: var(--padding)
+	display: grid
+	grid-gap: var(--padding)
+	background: var(--primary-color-subtle)
+	grid-template-rows: 1fr
+
+.issue
+	&-content
+		&-title
+			color: var(--gray-text)
+			font-weight: bold
+			font-size: 1.2em
+
+	&-title
+		padding-bottom: var(--padding)
+		&-name
+			color: var(--gray-text)
+			font-weight: bold
+			font-size: 1.2em
+		&-status
+			padding: 2px 5px
+			display: inline-block
+			border-radius: 3px
+			margin-left: 5px
+			background-color: #ccc
+			&.open
+				background: var(--accent-color)
+				color: var(--primary-text)
+			&.todo
+				background: orange
+				color: var(--secondary-text-hue)
+			&.progress
+				background: yellow
+				color: #000
+			&.closed
+				background: --danger-color
+				color: var(--primary-text)
