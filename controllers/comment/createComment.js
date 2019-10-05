@@ -7,6 +7,7 @@ async function createComment(req, res) {
             title:req.body.title,
             commentedBy:req.user.id,
             issue:req.body.issueId,
+            project:req.body.projectId,
     
         }).save();
         res.status(201)

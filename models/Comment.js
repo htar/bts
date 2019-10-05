@@ -6,6 +6,10 @@ const Schema = mongoose.Schema;
 
 
 var commentSchema = new Schema({
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
     title: String,
     commentedBy: {
         ref: 'users',
