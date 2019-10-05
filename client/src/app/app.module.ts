@@ -20,6 +20,7 @@ import { IssueCardComponent } from './component/issue-card/issue-card.component'
 import { ProjectCardComponent } from './component/project-card/project-card.component';
 import { ProjectFormComponent } from './component/project-form/project-form.component';
 import { IssuePageComponent } from './pages/issue-page/issue-page.component';
+import { DateAgoPipe } from './pipe/date-ago.pipe';
 
 @NgModule({
 	declarations: [
@@ -37,6 +38,7 @@ import { IssuePageComponent } from './pages/issue-page/issue-page.component';
 		ProjectCardComponent,
 		ProjectFormComponent,
 		IssuePageComponent,
+		DateAgoPipe,
 	],
 	imports: [
 		AppRoutingModule,
