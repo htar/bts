@@ -45,7 +45,7 @@ export class ProjectsPageComponent implements OnInit, OnDestroy {
 			project => {
 				this.projects = [project].concat(this.projects);
 				this.form.reset();
-				this.showProjectForm = !this.showProjectForm;
+				this.toggleShowForm();
 				this.materialService.openSnackBar(
 					`Project ${project.name} was created`,
 					'ok'
@@ -56,7 +56,10 @@ export class ProjectsPageComponent implements OnInit, OnDestroy {
 			}
 		);
 	}
-	showForm() {
+	toggleShowForm() {
 		this.showProjectForm = !this.showProjectForm;
+		if (this.showProjectForm === false) {
+			this.form.reset();
+		}
 	}
 }
