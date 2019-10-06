@@ -38,6 +38,7 @@ export class CommentFormComponent implements OnInit {
 			comment => {
 				this.createCommentEmit.emit(comment);
 				this.form.reset();
+				this.form.value.message = '';
 				this.materialService.openSnackBar(`Comment was created`, 'ok');
 			},
 			error => {

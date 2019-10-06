@@ -45,7 +45,7 @@ export class IssuePageComponent implements OnInit, OnDestroy {
 		}
 	}
 	createComment(comment) {
-		this.comments = [comment].concat(this.comments);
+		this.comments = this.comments.concat(comment);
 	}
 	ngOnDestroy() {
 		if (this.aSub) {
