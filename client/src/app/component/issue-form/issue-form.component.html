@@ -13,7 +13,7 @@
 		</mat-error>
 	</mat-form-field>
 	<mat-form-field>
-		<input matInput placeholder="Please update description" formControlName="description">
+		<textarea matInput placeholder="Please update description" formControlName="description"> </textarea>
 		<mat-error *ngIf="form.get('description').invalid && form.get('description').touched">
 			<span *ngIf="form.get('description').hasError('required')">
 				Please write description
