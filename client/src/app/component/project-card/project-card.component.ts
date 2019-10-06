@@ -16,6 +16,9 @@ export class ProjectCardComponent implements OnInit {
 		private projectService: ProjectService,
 		private materialService: MaterialService
 	) {}
+	toggleShowProjectForm() {
+		this.showProjectForm = !this.showProjectForm;
+	}
 
 	ngOnInit() {}
 	removeProject(project) {

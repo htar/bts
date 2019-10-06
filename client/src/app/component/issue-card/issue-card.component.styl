@@ -1,25 +1,11 @@
 
-
 .card-title
 	display: grid
-	grid-template-columns: 1fr 200px
+	grid-template-columns: 1fr 20px
 	grid-gap: var(--padding)
-
 
 .buttons
-	opacity: 0
-	visibility: hidden
-	transition: all .3s ease
-	display: grid
-	grid-template-columns: 1fr 1fr
-	grid-gap: var(--padding)
-
-mat-card
-	&:hover
-		.buttons
-			opacity: 1
-			visibility: visible
-			transition: all .3s ease
+	align-self: start
 
 .card-title span
 	cursor: pointer
@@ -31,7 +17,7 @@ mat-card
 	display: inline-block
 	border-radius: 3px
 	margin-left: 5px
-	background-color: #ccc
+	background-color: var(--primary-color-subtle)
 	&.open
 		background: var(--accent-color)
 		color: var(--primary-text)
@@ -40,7 +26,7 @@ mat-card
 		color: var(--secondary-text-hue)
 	&.progress
 		background: yellow
-		color: #000
+		color: var(--secondary-text)
 	&.closed
-		background: --danger-color
+		background: var(--danger-color)
 		color: var(--primary-text)

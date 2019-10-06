@@ -1,0 +1,107 @@
+h2
+	font-size: 32px
+	font-weight: 400
+	color: var(--secondary-text)
+	margin: 0
+	padding: var(--padding)
+	span
+		font-weight: 300
+		color: var(--gray-text)
+		font-size: 24px
+
+.cards
+	padding: var(--padding)
+	display: grid
+	grid-gap: var(--padding)
+	background: var(--primary-color-subtle)
+	grid-template-rows: 1fr
+
+.issue
+	&-description
+		display: grid
+		padding: var(--padding)
+		margin-bottom: var(--padding)
+		background: var(--primary-color-hue)
+		grid-template-rows: 1fr
+	&-wrap
+		display: grid
+		grid-template-columns: 1fr 300px
+		margin: 0 auto
+		grid-gap: var(--padding)
+		border: 1px solid var(--primary-color-subtle)
+	&-header
+		padding: var(--padding)
+		border-bottom: 1px dashed var(--primary-color-hue)
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&-back
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		cursor: pointer
+		font-size: 20px
+	&-title
+		padding: var(--padding)
+		&-name
+			color: var(--gray-text)
+			font-weight: bold
+			font-size: 1.2em
+		&-status
+			padding: 2px 5px
+			display: inline-block
+			border-radius: 3px
+			margin-rigth: 5px
+			background-color: var(--primary-color-subtle)
+			&.open
+				background: var(--accent-color)
+				color: var(--primary-text)
+			&.todo
+				background: orange
+				color: var(--secondary-text-hue)
+			&.progress
+				background: yellow
+				color: var(--secondary-text)
+			&.closed
+				background: var(--danger-color)
+				color: var(--primary-text)
+
+.comment-form
+	display: grid
+	grid-template-columns: 100px 1fr
+	border: 1px solid var(--primary-color-hue)
+	padding: var(--padding)
+	box-sizing: border-box
+	grid-gap: var(--padding)
+	margin: var(--padding)
+
+.asign
+	&-list
+		display: grid
+		grid-template-column: 1fr
+		grid-gap: var(--padding)
+		padding-bottom: var(--padding)
+		li
+			padding: 2px
+			font-size: 12px
+	input
+		font-size: 14px
+		height: 36px
+		box-sizing: border-box
+		padding: 5px
+		display: inline-block
+		border: 1px solid var(--primary-color-subtle)
+
+h6
+	margin: 0
+	font-size: 18px
+	text-align: center
+	padding: var(--padding)
+
+aside
+	padding: var(--padding)
+	padding-left: 0
+
+.mat-form-field
+	width: 100%
+	font-size: 16px

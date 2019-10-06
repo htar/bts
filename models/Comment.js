@@ -6,7 +6,11 @@ const Schema = mongoose.Schema;
 
 
 var commentSchema = new Schema({
-    title: String,
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    message: String,
     commentedBy: {
         ref: 'users',
         type: mongoose.Schema.Types.ObjectId

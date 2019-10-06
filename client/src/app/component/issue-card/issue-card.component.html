@@ -5,9 +5,19 @@
 				{{issue.title}}
 			</span>
 			<div class="buttons">
-				<button mat-flat-button color="accent" (click)=updateIssue(issue)>Edit</button>
-				<button mat-flat-button color="warn" (click)=removeIssue(issue)>Remove</button>
+				<button mat-icon-button [matMenuTriggerFor]="beforeMenu" aria-label="Example icon-button with a menu">
+					<mat-icon>more_vert</mat-icon>
+				</button>
+				<mat-menu #beforeMenu="matMenu" xPosition="before">
+					<button mat-menu-item color="accent" (click)=updateIssue(issue)>
+						<mat-icon>edit</mat-icon>Edit
+					</button>
+					<button mat-menu-item color="warn" (click)=removeIssue(issue)>
+						<mat-icon>delete</mat-icon>Remove
+					</button>
+				</mat-menu>
 			</div>
+
 		</div>
 	</mat-card-title>
 	<mat-card-subtitle>

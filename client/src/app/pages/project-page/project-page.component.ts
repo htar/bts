@@ -17,7 +17,7 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 	aSub: Subscription;
 	id: string;
 	project: Project;
-	issues: Issue[] = [];
+	issues: Issue[];
 	categories: Category[] = [];
 	constructor(
 		private route: ActivatedRoute,

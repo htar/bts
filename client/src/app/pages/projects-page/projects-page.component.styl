@@ -1,8 +1,6 @@
-:root
-	--padding: 10px
 
 .cards
-	background-color: #ccc
+	background-color: var(--primary-color-subtle)
 	display: grid
 	grid-gap: var(--padding)
 	grid-template-rows: 1fr
@@ -21,9 +19,20 @@ input
 	font-size: 14px
 	height: 36px
 	box-sizing: border-box
-	margin-right: var(--padding)
 	padding: 5px
 	display: inline-block
+	border: 1px solid var(--primary-color-subtle)
 
 section
 	margin-bottom: var(--padding)
+
+.project-form
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 100%
+	max-width: 600px
+	margin: 0 auto
+
+button
+	margin-left: var(--padding)

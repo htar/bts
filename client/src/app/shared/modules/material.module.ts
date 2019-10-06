@@ -13,6 +13,8 @@ import {
 	MatRadioModule,
 	MatSnackBarModule,
 	MatSelectModule,
+	MatMenuModule,
+	MatAutocompleteModule,
 } from '@angular/material';
 
 import { NgModule } from '@angular/core';
@@ -33,6 +35,8 @@ import { NgModule } from '@angular/core';
 		MatListModule,
 		MatRadioModule,
 		MatSelectModule,
+		MatMenuModule,
+		MatAutocompleteModule,
 	],
 	exports: [
 		MatToolbarModule,
@@ -49,6 +53,8 @@ import { NgModule } from '@angular/core';
 		MatListModule,
 		MatRadioModule,
 		MatSelectModule,
+		MatMenuModule,
+		MatAutocompleteModule,
 	],
 })
 export class MaterialModule {}

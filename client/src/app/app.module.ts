@@ -1,4 +1,3 @@
-
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -20,6 +19,9 @@ import { IssueCardComponent } from './component/issue-card/issue-card.component'
 import { ProjectCardComponent } from './component/project-card/project-card.component';
 import { ProjectFormComponent } from './component/project-form/project-form.component';
 import { IssuePageComponent } from './pages/issue-page/issue-page.component';
+import { DateAgoPipe } from './pipe/date-ago.pipe';
+import { CommentCardComponent } from './component/comment-card/comment-card.component';
+import { CommentFormComponent } from './component/comment-form/comment-form.component';
 
 @NgModule({
 	declarations: [
@@ -37,18 +39,19 @@ import { IssuePageComponent } from './pages/issue-page/issue-page.component';
 		ProjectCardComponent,
 		ProjectFormComponent,
 		IssuePageComponent,
+		DateAgoPipe,
+		CommentCardComponent,
+		CommentFormComponent,
 	],
-	imports: [
-		AppRoutingModule,
-		AngularModule,
-		MaterialModule
+	imports: [AppRoutingModule, AngularModule, MaterialModule],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			multi: true,
+			useClass: TokenInterceptor,
+		},
 	],
-	providers: [{
-		provide: HTTP_INTERCEPTORS,
-		multi: true,
-		useClass: TokenInterceptor
-	}],
 	bootstrap: [AppComponent],
-	entryComponents: [IssueFormComponent]
+	entryComponents: [IssueFormComponent],
 })
-export class AppModule { }
+export class AppModule {}

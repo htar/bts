@@ -1,5 +1,7 @@
 export interface User {
+	username: string;
 	email: string;
+	_id?: string;
 	password: string;
 }
 export interface Links {
@@ -26,21 +28,25 @@ export interface Issue {
 	assignUser?: Array<string>;
 	subscribeUser?: Array<string>;
 	createdAt?: Date;
-	user?: string;
+	user?: any;
 }
 export interface Comment {
-	_id: string;
-	title: string;
-	commentedBy: string;
-	issue: string;
-	comments: Array<string>;
+	_id?: string;
+	message: string;
+	commentedBy?: any;
+	createdAt?: Date;
+	issueId: string;
+	projectId: string;
+	comments?: Array<string>;
 }
 
 export interface Category {
-	_id: string;
+	_id?: string;
 	name: string;
 	createdAt?: Date;
 	project: string;
 }
 
-
+export interface Status {
+	value: string;
+}
