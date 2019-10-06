@@ -25,11 +25,13 @@ h2
 		grid-template-rows: 1fr
 	&-wrap
 		display: grid
-		grid-template-columns: 1fr 250px
+		grid-template-columns: 1fr 300px
+		margin: 0 auto
 		grid-gap: var(--padding)
+		border: 1px solid var(--primary-color-subtle)
 	&-header
-		padding: 0 var(--padding) var(--padding)
-		border-bottom: 1px dashed  var(--primary-color-hue)
+		padding: var(--padding)
+		border-bottom: 1px dashed var(--primary-color-hue)
 		display: flex
 		align-items: center
 		justify-content: space-between
@@ -60,7 +62,7 @@ h2
 			&.progress
 				background: yellow
 				color: var(--secondary-text)
-			&.close
+			&.closed
 				background: var(--danger-color)
 				color: var(--primary-text)
 
@@ -72,3 +74,34 @@ h2
 	box-sizing: border-box
 	grid-gap: var(--padding)
 	margin: var(--padding)
+
+.asign
+	&-list
+		display: grid
+		grid-template-column: 1fr
+		grid-gap: var(--padding)
+		padding-bottom: var(--padding)
+		li
+			padding: 2px
+			font-size: 12px
+	input
+		font-size: 14px
+		height: 36px
+		box-sizing: border-box
+		padding: 5px
+		display: inline-block
+		border: 1px solid var(--primary-color-subtle)
+
+h6
+	margin: 0
+	font-size: 18px
+	text-align: center
+	padding: var(--padding)
+
+aside
+	padding: var(--padding)
+	padding-left: 0
+
+.mat-form-field
+	width: 100%
+	font-size: 16px

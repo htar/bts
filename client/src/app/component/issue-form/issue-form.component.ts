@@ -1,10 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { Status } from 'src/app/shared/interfaces';
 
-interface Status {
-	value: string;
-}
+import statuses from 'src/app/shared/data/statuses';
 @Component({
 	selector: 'app-issue-form',
 	templateUrl: './issue-form.component.html',
@@ -14,12 +13,7 @@ export class IssueFormComponent implements OnInit {
 	form: FormGroup;
 	description: string;
 	title: string;
-	statuses: Status[] = [
-		{ value: 'open' },
-		{ value: 'todo' },
-		{ value: 'progress' },
-		{ value: 'closed' },
-	];
+	statuses: Status[] = statuses;
 	selected: string = this.statuses[0].value;
 
 	constructor(

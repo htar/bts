@@ -36,7 +36,30 @@
 				<app-comment-form [issue]="issue" (createCommentEmit)=createComment($event)></app-comment-form>
 			</div>
 		</div>
-		<aside></aside>
+		<aside>
+			<mat-form-field>
+				<mat-label>Please Select Status</mat-label>
+				<mat-select placeholder="Favorite food" [value]="selected" (selectionChange)=updateStatus($event.value)>
+					<mat-option *ngFor="let s of statuses" [value]="s.value">
+						{{s.value}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+
+			<div class="asign">
+				<h6>Assign up to {{issue.assignUser.length}} people to this issue</h6>
+				<ul class="asign-list" *ngIf="issue.assignUser.length">
+					<li *ngFor="let item of issue.assignUser">{{item}}</li>
+				</ul>
+				<input matInput placeholder="Type to choose a name" type="text" (keyup)="search($event)" autofocus>
+				<mat-selection-list>
+					<mat-list-option *ngFor="let item of this.users" (click)="assignUser(item)"
+						[selected]='isSelected(item)'>
+						{{item.username}} - {{item._id}}
+					</mat-list-option>
+				</mat-selection-list>
+			</div>
+		</aside>
 	</div>
 </section>
 
