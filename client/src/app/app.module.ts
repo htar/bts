@@ -20,6 +20,7 @@ import { ProjectCardComponent } from './component/project-card/project-card.comp
 import { ProjectFormComponent } from './component/project-form/project-form.component';
 import { IssuePageComponent } from './pages/issue-page/issue-page.component';
 import { DateAgoPipe } from './pipe/date-ago.pipe';
+import { CommentCardComponent } from './component/comment-card/comment-card.component';
 import { CommentFormComponent } from './component/comment-form/comment-form.component';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CommentFormComponent } from './component/comment-form/comment-form.comp
 		ProjectFormComponent,
 		IssuePageComponent,
 		DateAgoPipe,
+		CommentCardComponent,
 		CommentFormComponent,
 	],
 	imports: [AppRoutingModule, AngularModule, MaterialModule],

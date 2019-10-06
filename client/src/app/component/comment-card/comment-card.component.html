@@ -1,0 +1,33 @@
+<mat-card class="comment-content">
+	<mat-card-subtitle>
+		<div class="">
+			<span class='comment-content-title'>
+				{{comment.commentedBy.username}}
+			</span>
+			<span>commented {{comment.createdAt | dateAgo}}</span>
+
+		</div>
+		<div class="">
+			<button mat-icon-button [matMenuTriggerFor]="beforeMenu" aria-label="Example icon-button with a menu">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #beforeMenu="matMenu" xPosition="before">
+				<button mat-menu-item color="accent" (click)=toggleCommentForm()>
+					<mat-icon>edit</mat-icon>Edit
+				</button>
+				<button mat-menu-item color="warn" (click)=removeComment(comment)>
+					<mat-icon>delete</mat-icon>Remove
+				</button>
+			</mat-menu>
+		</div>
+
+	</mat-card-subtitle>
+	<mat-card-content *ngIf="!showCommentForm; else form ">
+		<span class='comment-content-text'>
+			{{comment.message}}
+		</span>
+	</mat-card-content>
+	<ng-template #form>
+		<h1>Form</h1>
+	</ng-template>
+</mat-card>
