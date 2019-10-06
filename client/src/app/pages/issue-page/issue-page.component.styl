@@ -18,16 +18,11 @@ h2
 
 .issue
 	&-wrap
-		display grid
+		display: grid
 		grid-template-columns: 1fr 250px
 		grid-gap: var(--padding)
-	&-content
-		&-title
-			color: var(--gray-text)
-			font-weight: bold
-			font-size: 1.2em
 	&-title
-		padding-bottom: var(--padding)
+		padding: var(--padding)
 		&-name
 			color: var(--gray-text)
 			font-weight: bold
@@ -36,8 +31,8 @@ h2
 			padding: 2px 5px
 			display: inline-block
 			border-radius: 3px
-			margin-left: 5px
-			background-color: #ccc
+			margin-rigth: 5px
+			background-color: var(--primary-color-subtle)
 			&.open
 				background: var(--accent-color)
 				color: var(--primary-text)
