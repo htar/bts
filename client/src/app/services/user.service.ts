@@ -13,6 +13,6 @@ export class UserService {
 	search(search: any): Observable<User[]> {
 		const option = { limit: 50, skip: 0 };
 		Object.assign(search, option);
-		return this.http.post<User[]>('/api/user/search', search);
+		return this.http.post<any>('/api/user/search', search);
 	}
 }

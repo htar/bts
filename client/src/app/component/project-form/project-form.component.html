@@ -3,14 +3,14 @@
 	<button mat-flat-button color="accent" [disabled]="form.invalid || form.disabled"
 		(click)=updateProject(project)>Save</button>
 	<button mat-flat-button color="warn" (click)=hideProjectForm.emit()>Cancel</button>
-	<div class="errors">
-		<mat-error *ngIf="form.get('name').invalid && form.get('name').touched">
-			<span *ngIf="form.get('name').hasError('required')">
-				Please write name
-			</span>
-			<span *ngIf="form.get('name').hasError('minlength')">
-				Min length 6 letters
-			</span>
-		</mat-error>
-	</div>
 </form>
+<div class="errors">
+	<mat-error *ngIf="form.get('name').invalid && form.get('name').touched">
+		<span *ngIf="form.get('name').hasError('required')">
+			Please write name
+		</span>
+		<span *ngIf="form.get('name').hasError('minlength')">
+			Min length 6 letters
+		</span>
+	</mat-error>
+</div>

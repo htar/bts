@@ -1,6 +1,7 @@
 export interface User {
 	username: string;
 	email: string;
+	_id?: string;
 	password: string;
 }
 export interface Links {
@@ -44,4 +45,8 @@ export interface Category {
 	name: string;
 	createdAt?: Date;
 	project: string;
+}
+
+export interface Status {
+	value: string;
 }
