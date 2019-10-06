@@ -6,6 +6,7 @@ const { errorHandler } = require('../../utils');
 
 async function getIssueById(req, res) {
     try {
+        const user = await User.findById(req.user.id, { username: 1, email: 1 });
         const issue = await Issue.findById(req.params.issueId);
         const comment = await Comment.aggregate([
             { $match : {issue:issue._id} },
@@ -38,7 +39,8 @@ async function getIssueById(req, res) {
             }
         ]);
         issue.user = await User.findOne({ _id: issue.user }, { username: 1, email: 1, _id: 1 });
-        res.status(200).json({issue,comment});
+
+        res.status(200).json({issue,comment,user});
     } catch (error) {
         errorHandler(res, error);
     }

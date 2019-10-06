@@ -31,10 +31,10 @@
 				</mat-card>
 			</div>
 			<div class='comment-form'>
-				<div class="comment-form-user">sdfsdfsdfds</div>
+				<div class="comment-form-user">{{user.username}}</div>
 				<form [formGroup]="form">
 					<mat-form-field>
-						<textarea matInput placeholder="Please update message" formControlName="message"></textarea>
+						<textarea matInput placeholder="new message" formControlName="message"></textarea>
 					</mat-form-field>
 					<div class="errors">
 						<mat-error *ngIf="form.get('message').invalid && form.get('message').touched">

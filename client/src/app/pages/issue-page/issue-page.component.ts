@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Issue } from 'src/app/shared/interfaces';
+import { Issue, User } from 'src/app/shared/interfaces';
 import { IssueService } from 'src/app/services/issue.service';
 import { ActivatedRoute } from '@angular/router';
 import { Comment } from 'src/app/shared/interfaces';
@@ -17,6 +17,7 @@ export class IssuePageComponent implements OnInit, OnDestroy {
 	aSub: Subscription;
 	id: string;
 	issue: Issue;
+	user: User;
 	comments: Comment[];
 	form: FormGroup;
 	constructor(
@@ -34,6 +35,7 @@ export class IssuePageComponent implements OnInit, OnDestroy {
 				console.log(data);
 				this.issue = data.issue;
 				this.comments = data.comment;
+				this.user = data.user;
 			});
 		}
 		this.form = this.formBuilder.group({
