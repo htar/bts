@@ -31,7 +31,6 @@ export class IssuePageComponent implements OnInit, OnDestroy {
 		this.previousUrl = this.routesService.getPreviousUrl();
 		if (id) {
 			this.aSub = this.issueService.getById(id).subscribe(data => {
-				console.log(data);
 				this.issue = data.issue;
 				this.comments = data.comment;
 				this.user = data.user;

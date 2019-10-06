@@ -28,6 +28,22 @@
 		</span>
 	</mat-card-content>
 	<ng-template #form>
-		<h1>Form</h1>
+		<form [formGroup]="updateForm">
+			<mat-form-field>
+				<textarea matInput placeholder="new message" formControlName="message"></textarea>
+			</mat-form-field>
+			<div class="errors">
+				<mat-error *ngIf="updateForm.get('message').invalid && updateForm.get('message').touched">
+					<span *ngIf="updateForm.get('message').hasError('required')">
+						Please write message
+					</span>
+				</mat-error>
+			</div>
+			<div class="form-buttons">
+				<button mat-flat-button color="accent" [disabled]="updateForm.invalid || updateForm.disabled"
+					(click)=updateCommit()>Save</button>
+				<button mat-flat-button color="primary" (click)=toggleCommentForm()>Cancel</button>
+			</div>
+		</form>
 	</ng-template>
 </mat-card>
