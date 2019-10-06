@@ -5,6 +5,7 @@ import { IssueService } from 'src/app/services/issue.service';
 import { ActivatedRoute } from '@angular/router';
 import { Comment } from 'src/app/shared/interfaces';
 import { MaterialService } from 'src/app/services/material.service';
+import { RoutesService } from 'src/app/services/routes.service';
 
 @Component({
 	selector: 'app-issue-page',
@@ -14,17 +15,20 @@ import { MaterialService } from 'src/app/services/material.service';
 export class IssuePageComponent implements OnInit, OnDestroy {
 	aSub: Subscription;
 	id: string;
+	previousUrl: string;
 	issue: Issue;
 	user: User;
 	comments: Comment[];
 	constructor(
 		private issueService: IssueService,
 		private route: ActivatedRoute,
+		private routesService: RoutesService,
 		private materialService: MaterialService
 	) {}
 
 	ngOnInit() {
 		const id = this.route.snapshot.paramMap.get('id');
+		this.previousUrl = this.routesService.getPreviousUrl();
 		if (id) {
 			this.aSub = this.issueService.getById(id).subscribe(data => {
 				console.log(data);

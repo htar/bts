@@ -1,3 +1,8 @@
+<header class="issue-header">
+	<div class='issue-back' *ngIf="previousUrl" routerLink="{{previousUrl}}">
+		<mat-icon>arrow_back</mat-icon>BACK
+	</div>
+</header>
 <section class="issue" *ngIf="issue; else loader">
 	<h2>{{issue.title}}
 		<span> #{{issue._id}}</span>

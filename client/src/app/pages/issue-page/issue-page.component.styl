@@ -1,8 +1,8 @@
 h2
 	font-size: 32px
 	font-weight: 400
-	color: #24292e
-	margin-bottom: 0
+	color: var(--secondary-text)
+	margin: 0
 	padding: var(--padding)
 	span
 		font-weight: 300
@@ -21,6 +21,17 @@ h2
 		display: grid
 		grid-template-columns: 1fr 250px
 		grid-gap: var(--padding)
+	&-header
+		padding: 0 var(--padding)
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&-back
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		cursor: pointer
+		font-size: 20px
 	&-title
 		padding: var(--padding)
 		&-name
@@ -54,4 +65,3 @@ h2
 	box-sizing: border-box
 	grid-gap: var(--padding)
 	margin: var(--padding)
-
