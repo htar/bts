@@ -54,7 +54,7 @@ export class CommentFormComponent implements OnInit {
 		this.closeIssue();
 	}
 	closeIssue() {
-		const issue = Object.assign(this.issue, { status: 'close' });
+		const issue = Object.assign(this.issue, { status: 'closed' });
 		this.issueService.update(issue).subscribe(
 			item => {
 				this.materialService.openSnackBar(
