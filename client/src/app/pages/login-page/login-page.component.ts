@@ -1,3 +1,4 @@
+import { User } from 'src/app/shared/interfaces';
 import { AuthService } from './../../services/auth.service';
 import { MaterialService } from '../../services/material.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -11,6 +12,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 	styleUrls: ['./login-page.component.styl'],
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
+	users: User[] = [
+		{ username: 'guest', email: 'guest@guest.ua', password: 'guest@guest.ua' },
+	];
 	form: FormGroup;
 	aSub: Subscription;
 
@@ -62,5 +66,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 				this.form.reset();
 			}
 		);
+	}
+	selectUser(username) {
+		const user = this.users.find(user => user.username === username);
+		this.form.patchValue(user);
 	}
 }

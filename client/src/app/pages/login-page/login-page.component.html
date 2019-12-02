@@ -42,4 +42,13 @@
 			</mat-card-actions>
 		</form>
 	</mat-card-content>
+		<h2 class='center'>Or</h2>
+		<mat-form-field>
+			<mat-label>Select user for the test</mat-label>
+			<mat-select (selectionChange)="selectUser($event.value)">
+				<mat-option *ngFor="let user of users" [value]="user.username">
+				{{user.username}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
 </mat-card>
