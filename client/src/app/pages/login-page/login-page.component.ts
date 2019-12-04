@@ -13,7 +13,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
 	users: User[] = [
-		{ username: 'guest', email: 'guest@guest.ua', password: 'guest@guest.ua' },
+		{ username: 'user', email: 'user@user.ua', password: 'useruser' },
 	];
 	form: FormGroup;
 	aSub: Subscription;
