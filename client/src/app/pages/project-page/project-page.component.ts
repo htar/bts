@@ -110,8 +110,15 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 				event.currentIndex
 			);
 		}
+		// @ts-ignore
 		const id: string = event.container.data[event.currentIndex]._id;
 		const item = this.issues.find(issue => issue._id === id);
 		item.status = status;
+		this.issueService.update(item).subscribe(
+			issue => {},
+			error => {
+				this.materialService.openSnackBar(error.error.message, 'ok');
+			}
+		);
 	}
 }
