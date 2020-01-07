@@ -51,7 +51,7 @@
 				<ul class="asign-list" *ngIf="issue.assignUser.length">
 					<li *ngFor="let item of issue.assignUser">{{item}}</li>
 				</ul>
-				<input matInput placeholder="Type to choose a name" type="text" (keyup)="search($event)" autofocus>
+				<input matInput placeholder="Type to choose a name" type="text" #search autofocus>
 				<mat-selection-list>
 					<mat-list-option *ngFor="let item of this.users" (click)="assignUser(item)"
 						[selected]='isSelected(item)'>

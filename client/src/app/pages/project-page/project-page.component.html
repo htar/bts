@@ -4,9 +4,18 @@
 </section>
 
 <div class="wrap" *ngIf="issues; else loader">
-	<div class="cards" *ngIf="issues.length !== 0; else empty">
-		<app-issue-card [issue]="issue" *ngFor="let issue of issues" (removeIssueEmit)="removeIssue($event)">
-		</app-issue-card>
+	<div cdkDropListGroup class="columns" *ngIf="issues.length !== 0; else empty">
+		<div  *ngFor="let status of statuses">
+			<h2>{{status}}</h2>
+			<div class="column" cdkDropList [cdkDropListData]="issueGroups[status]"
+
+				(cdkDropListDropped)="drop($event,status)">
+				<div class='issue' *ngFor="let issue of issueGroups[status]" cdkDrag>
+					<app-issue-card [issue]="issue" (removeIssueEmit)="removeIssue($event)">
+					</app-issue-card>
+				</div>
+			</div>
+		</div>
 	</div>
 	<ng-template #empty>
 		<div class="center">

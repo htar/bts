@@ -7,6 +7,13 @@ import { Project, Issue, Category } from 'src/app/shared/interfaces';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { IssueFormComponent } from 'src/app/component/issue-form/issue-form.component';
 import { Subscription } from 'rxjs';
+import groupBy from 'lodash/groupBy';
+
+import {
+	CdkDragDrop,
+	moveItemInArray,
+	transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 @Component({
 	selector: 'app-project-page',
@@ -19,6 +26,8 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 	project: Project;
 	issues: Issue[];
 	categories: Category[] = [];
+	statuses: object = {};
+	issueGroups: object = {};
 	constructor(
 		private route: ActivatedRoute,
 		private dialog: MatDialog,
@@ -33,7 +42,8 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 			this.aSub = this.projectService.getById(id).subscribe(data => {
 				this.project = data.project;
 				this.issues = data.issues;
-				// this.categories = data.categories;
+				this.issueGroups = groupBy(this.issues, 'status');
+				this.statuses = Object.keys(this.issueGroups);
 			});
 		}
 	}
@@ -84,5 +94,24 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 				this.issues.splice(i, 1);
 			}
 		}
+	}
+	drop(event: CdkDragDrop<string[]>, status: string) {
+		if (event.previousContainer === event.container) {
+			moveItemInArray(
+				event.container.data,
+				event.previousIndex,
+				event.currentIndex
+			);
+		} else {
+			transferArrayItem(
+				event.previousContainer.data,
+				event.container.data,
+				event.previousIndex,
+				event.currentIndex
+			);
+		}
+		const id: string = event.container.data[event.currentIndex]._id;
+		const item = this.issues.find(issue => issue._id === id);
+		item.status = status;
 	}
 }

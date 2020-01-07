@@ -58,9 +58,9 @@ export class IssuePageComponent implements OnInit, OnDestroy {
 	search(value) {
 		this.bSub = of(value.target.value)
 			.pipe(
-				filter(searchTerm => searchTerm.length),
 				debounceTime(500),
 				distinctUntilChanged(),
+				filter(searchTerm => searchTerm.length),
 				switchMap(searchKey => this.userService.search({ search: searchKey }))
 			)
 			.subscribe(

@@ -1,10 +1,20 @@
 
-.cards
+.columns
 	background-color: var(--primary-color-subtle)
-	display: grid
+	display: flex
 	grid-gap: var(--padding)
-	grid-template-rows: 1fr
 	padding: var(--padding)
+	overflow-x: scroll
+	max-width: 100vw
+
+.column
+	padding: .2em
+	max-width: 300px
+	width: 300px
+	min-height: 700px
+
+.issue
+	margin-bottom: var(--padding)
 
 .center
 	text-align: center
