@@ -10,6 +10,7 @@ const pipelineSchema = new Schema({
     },
     name: {
         type: String,
+        default: 'todo',
         required: true
     },
     project: {

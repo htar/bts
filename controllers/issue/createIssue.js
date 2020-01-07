@@ -15,6 +15,7 @@ async function createIssue(req, res) {
                 description: req.body.description,
                 status: req.body.status,
                 project: req.body.projectId,
+                pipeline: req.body.pipeline,
                 user: user.id,
                 subscribeUser: [user.id],
 

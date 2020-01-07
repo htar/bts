@@ -40,6 +40,7 @@ export class IssueCardComponent implements OnInit {
 				status: data.status,
 				description: data.description,
 				title: data.title,
+				pipeline: data.pipeline,
 				projectId: issue.project,
 				_id: issue._id,
 			};

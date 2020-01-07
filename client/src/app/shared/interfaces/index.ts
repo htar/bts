@@ -24,6 +24,7 @@ export interface Issue {
 	title: string;
 	description: string;
 	projectId: string;
+	pipeline: string;
 	status: string;
 	assignUser?: Array<string>;
 	subscribeUser?: Array<string>;
@@ -44,7 +45,7 @@ export interface Pipeline {
 	_id?: string;
 	name: string;
 	createdAt?: Date;
-	project: string;
+	projectId: string;
 }
 
 export interface Status {

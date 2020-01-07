@@ -1,4 +1,5 @@
 const Project = require('../../models/Project');
+const Pipeline = require('../../models/Pipeline');
 const User = require('../../models/User');
 
 const {  errorHandler } = require('../../utils');
@@ -12,6 +13,9 @@ async function createProject(req, res) {
                 user: req.user.id,
                 imageSrc: req.file ? req.file.path : ''
     
+            }).save();
+            await new Pipeline({
+                project: project._id,
             }).save();
             res.status(201)
                 .json(project);
