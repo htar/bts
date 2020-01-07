@@ -40,7 +40,7 @@ export interface Comment {
 	comments?: Array<string>;
 }
 
-export interface Category {
+export interface Pipeline {
 	_id?: string;
 	name: string;
 	createdAt?: Date;

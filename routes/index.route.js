@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.use('/analytics', require('./analytics'));
 router.use('/auth', require('./auth'));
-router.use('/category', require('./category'));
+router.use('/pipeline', require('./pipeline'));
 router.use('/comment', require('./comment'));
 router.use('/issue', require('./issue'));
 router.use('/project', require('./project'));

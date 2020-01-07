@@ -16,8 +16,8 @@ const issueSchema = new Schema({
         type: String,
         required: true,
     },
-    category:{
-        ref:'categories',
+    pipeline:{
+        ref:'pipelines',
         type: Schema.Types.ObjectId,
     },
     project:{

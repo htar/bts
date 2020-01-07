@@ -1,6 +1,6 @@
 const Project = require('../../models/Project');
 const Issue = require('../../models/Issue');
-const Category = require('../../models/Category');
+const Pipeline = require('../../models/Pipeline');
 const {  errorHandler } = require('../../utils');
 
 async function getProjectById(req, res) {
@@ -8,10 +8,10 @@ async function getProjectById(req, res) {
     try {
         const project = await Project.findById(projectId);
         const issues = await Issue.find({project:projectId}).sort({'createdAt': -1});
-        const categories = await Category.find({project:projectId});
+        const pipelines = await Pipeline.find({project:projectId});
         res.status(200).json({
             issues,
-            categories,
+            pipelines,
             project
         });
     } catch (error) {

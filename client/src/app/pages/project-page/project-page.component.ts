@@ -3,7 +3,7 @@ import { IssueService } from './../../services/issue.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
-import { Project, Issue, Category } from 'src/app/shared/interfaces';
+import { Project, Issue, Pipeline } from 'src/app/shared/interfaces';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { IssueFormComponent } from 'src/app/component/issue-form/issue-form.component';
 import { Subscription } from 'rxjs';
@@ -25,7 +25,7 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 	id: string;
 	project: Project;
 	issues: Issue[];
-	categories: Category[] = [];
+	pipelines: Pipeline[] = [];
 	statuses: object = {};
 	issueGroups: object = {};
 	constructor(

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-/** Category Schema */
-const categorySchema = new Schema({
+/** Pipeline Schema */
+const pipelineSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
@@ -18,4 +18,4 @@ const categorySchema = new Schema({
     },
 });
 
-module.exports = mongoose.model('categories', categorySchema);
+module.exports = mongoose.model('pipelines', pipelineSchema);
