@@ -99,7 +99,7 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 			}
 		}
 	}
-	drop(event: CdkDragDrop<string[]>, column: string) {
+	drop(event: CdkDragDrop<string[]>, column: string, columnItems: Issue[]) {
 		if (event.previousContainer === event.container) {
 			moveItemInArray(
 				event.container.data,
@@ -114,8 +114,7 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 				event.currentIndex
 			);
 		}
-		// @ts-ignore
-		const id: string = event.container.data[event.currentIndex]._id;
+		const id: string = columnItems[event.currentIndex]._id;
 		const item = this.issues.find(issue => issue._id === id);
 		item.pipeline = column;
 		this.issueService.update(item).subscribe(
@@ -126,7 +125,7 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 		);
 	}
 	findPipeline(pipeline) {
-		const ourPipeline =  this.pipelines.find(item => item._id === pipeline);
+		const ourPipeline = this.pipelines.find(item => item._id === pipeline);
 		return ourPipeline.name;
 
 	}

@@ -5,11 +5,10 @@
 
 <div class="wrap" *ngIf="issues; else loader">
 	<div cdkDropListGroup class="columns" *ngIf="issues.length !== 0; else empty">
-		<div  *ngFor="let column of columns">
+		<div *ngFor="let column of columns">
 			<h2>{{findPipeline(column)}}</h2>
 			<div class="column" cdkDropList [cdkDropListData]="issueGroups[column]"
-
-				(cdkDropListDropped)="drop($event,column)">
+				(cdkDropListDropped)="drop($event,column,issueGroups[column])">
 				<div class='issue' *ngFor="let issue of issueGroups[column]" cdkDrag>
 					<app-issue-card [issue]="issue" (removeIssueEmit)="removeIssue($event)">
 					</app-issue-card>
@@ -17,12 +16,12 @@
 			</div>
 		</div>
 		<div>
-		<div class="column add-column">
-			<span>
-				<mat-icon>add</mat-icon>
-				Add column
-			</span>
-		</div>
+			<div class="column add-column">
+				<span>
+					<mat-icon>add</mat-icon>
+					Add column
+				</span>
+			</div>
 		</div>
 	</div>
 	<ng-template #empty>
