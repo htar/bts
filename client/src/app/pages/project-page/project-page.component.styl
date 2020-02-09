@@ -14,14 +14,20 @@
 	min-height: 700px
 	&.add-column
 		margin-top: 60px
-		span
+		cursor: pointer
+.add
+	&-column
+		&-wrap
 			font-size: 24px
 			font-weight: 500
 			display: flex
-			align-items center
-			justify-content center
+			align-items: center
+			justify-content: center
 			min-height: 124px
 			border: 1px dashed var(--primary-color)
+		&-form
+			display flex
+			flex-direction: column
 
 .issue
 	margin-bottom: var(--padding)

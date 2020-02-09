@@ -1,7 +1,6 @@
 <h1 class="center">Projects</h1>
 <section class="center">
-	<button mat-raised-button *ngIf="!showProjectForm; else formWrap" color="primary" (click)="toggleShowForm()">Add new
-		Project
+	<button mat-raised-button *ngIf="!showProjectForm; else formWrap" color="primary" (click)="toggleShowForm()">Add new Project
 	</button>
 	<ng-template #formWrap>
 		<form [formGroup]="form" class='project-form'>

@@ -17,11 +17,34 @@
 		</div>
 		<div>
 			<div class="column add-column">
-				<span>
+
+				<span class="add-column-wrap" *ngIf="!showForm; else formWrap" color="primary"
+					(click)="toggleShowForm()">
 					<mat-icon>add</mat-icon>
 					Add column
+
 				</span>
 			</div>
+			<ng-template #formWrap>
+				<div class="add-column-wrap add-column-form">
+					<form [formGroup]="form" class='project-form'>
+						<input matInput placeholder="Please update name" formControlName="name">
+						<button mat-flat-button color="accent" [disabled]="form.invalid || form.disabled"
+							(click)=addNewPipeline()>Save</button>
+						<button mat-flat-button color="warn" (click)=toggleShowForm()>Cancel</button>
+					</form>
+					<div class="errors">
+						<mat-error *ngIf="form.get('name').invalid && form.get('name').touched">
+							<span *ngIf="form.get('name').hasError('required')">
+								Please write name
+							</span>
+							<span *ngIf="form.get('name').hasError('minlength')">
+								Min length 6 letters
+							</span>
+						</mat-error>
+					</div>
+				</div>
+			</ng-template>
 		</div>
 	</div>
 	<ng-template #empty>

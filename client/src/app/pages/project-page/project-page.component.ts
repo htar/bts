@@ -3,10 +3,12 @@ import { IssueService } from './../../services/issue.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
+import { PipelineService } from 'src/app/services/pipeline.service';
 import { Project, Issue, Pipeline } from 'src/app/shared/interfaces';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { IssueFormComponent } from 'src/app/component/issue-form/issue-form.component';
 import { Subscription } from 'rxjs';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import groupBy from 'lodash/groupBy';
 
 import {
@@ -28,16 +30,24 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 	pipelines: Pipeline[] = [];
 	columns: object = {};
 	issueGroups: object = {};
+	showForm = false;
+	form: FormGroup;
+
 	constructor(
 		private route: ActivatedRoute,
 		private dialog: MatDialog,
 		private issueService: IssueService,
+		private pipelineService: PipelineService,
 		private projectService: ProjectService,
-		private materialService: MaterialService
+		private materialService: MaterialService,
+		private formBuilder: FormBuilder
 	) {}
 
 	ngOnInit() {
 		const id = this.route.snapshot.paramMap.get('id');
+		this.form = this.formBuilder.group({
+			name: ['', [Validators.required, Validators.minLength(6)]],
+		});
 		if (id) {
 			this.aSub = this.projectService.getById(id).subscribe(data => {
 				this.project = data.project;
@@ -128,5 +138,31 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 		const ourPipeline = this.pipelines.find(item => item._id === pipeline);
 		return ourPipeline.name;
 
+	}
+	toggleShowForm() {
+		this.showForm = !this.showForm;
+		if (this.showForm === false) {
+			this.form.reset();
+		}
+	}
+	addNewPipeline() {
+		const option = {
+			projectId: this.project._id,
+			name: this.form.value.name
+		}
+		this.pipelineService.create(option).subscribe(
+			pipeline => {
+				this.pipelines = [pipeline].concat(this.pipelines);
+				this.form.reset();
+				this.toggleShowForm();
+				this.materialService.openSnackBar(
+					`Project ${pipeline.name} was created`,
+					'ok'
+				);
+			},
+			error => {
+				this.materialService.openSnackBar(error.error.message, 'ok');
+			}
+		);
 	}
 }
