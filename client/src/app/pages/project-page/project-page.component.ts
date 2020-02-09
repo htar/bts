@@ -53,7 +53,12 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
 				this.project = data.project;
 				this.pipelines = data.pipelines;
 				this.issues = data.issues;
-				this.issueGroups = groupBy(this.issues, 'pipeline');
+				const generateColumns = this.pipelines.reduce((acc, item) => {
+					acc[item._id] = [];
+					return acc;
+				}, {});
+				const issuesColumns = groupBy(this.issues, 'pipeline')
+				this.issueGroups = Object.assign({}, generateColumns, issuesColumns);
 				this.columns = Object.keys(this.issueGroups);
 			});
 		}
